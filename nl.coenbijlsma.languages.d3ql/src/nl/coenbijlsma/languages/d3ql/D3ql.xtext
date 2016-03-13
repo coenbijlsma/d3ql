@@ -1,0 +1,35 @@
+grammar nl.coenbijlsma.languages.d3ql.D3ql with org.eclipse.xtext.common.Terminals
+
+generate d3ql "http://www.coenbijlsma.nl/languages/d3ql/D3ql"
+
+Query:
+	fromStatement=FromStatement selectStatement=SelectStatement
+;
+
+FromStatement:
+	'from' aggregates+=AggregateRoot (',' aggregates+=AggregateRoot)*
+;
+
+Named:
+	AggregateRoot | Alias
+;
+
+AggregateRoot:
+	name=ID ('as' alias=Alias)?
+;
+
+Alias:
+	name=ID
+;
+
+SelectStatement:
+	'select' paths+=PathExpression (',' paths+=PathExpression)*
+;
+
+PathExpression:
+	head=[Named] '.' (tail+=PathElement '.')* tail+=PathElement
+;
+
+PathElement:
+	name=ID
+;
