@@ -106,6 +106,11 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
         return createSelectStatementAdapter();
       }
       @Override
+      public Adapter caseSelectExpression(SelectExpression object)
+      {
+        return createSelectExpressionAdapter();
+      }
+      @Override
       public Adapter casePathExpression(PathExpression object)
       {
         return createPathExpressionAdapter();
@@ -114,6 +119,36 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
       public Adapter casePathElement(PathElement object)
       {
         return createPathElementAdapter();
+      }
+      @Override
+      public Adapter caseFunctionCall(FunctionCall object)
+      {
+        return createFunctionCallAdapter();
+      }
+      @Override
+      public Adapter caseFunctionArgument(FunctionArgument object)
+      {
+        return createFunctionArgumentAdapter();
+      }
+      @Override
+      public Adapter caseLiteral(Literal object)
+      {
+        return createLiteralAdapter();
+      }
+      @Override
+      public Adapter caseIntegerLiteral(IntegerLiteral object)
+      {
+        return createIntegerLiteralAdapter();
+      }
+      @Override
+      public Adapter caseStringLiteral(StringLiteral object)
+      {
+        return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseBooleanLiteral(BooleanLiteral object)
+      {
+        return createBooleanLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -228,6 +263,21 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression <em>Select Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression
+   * @generated
+   */
+  public Adapter createSelectExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.PathExpression <em>Path Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -253,6 +303,96 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPathElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall <em>Function Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall
+   * @generated
+   */
+  public Adapter createFunctionCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument <em>Function Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument
+   * @generated
+   */
+  public Adapter createFunctionArgumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.Literal <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.Literal
+   * @generated
+   */
+  public Adapter createLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral <em>Integer Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral
+   * @generated
+   */
+  public Adapter createIntegerLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral
+   * @generated
+   */
+  public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral <em>Boolean Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral
+   * @generated
+   */
+  public Adapter createBooleanLiteralAdapter()
   {
     return null;
   }

@@ -36,6 +36,10 @@ public class D3qlParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getNamedAccess().getAlternatives(), "rule__Named__Alternatives");
+					put(grammarAccess.getSelectExpressionAccess().getExpressionAlternatives_0_0(), "rule__SelectExpression__ExpressionAlternatives_0_0");
+					put(grammarAccess.getFunctionArgumentAccess().getValueAlternatives_0(), "rule__FunctionArgument__ValueAlternatives_0");
+					put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
+					put(grammarAccess.getBooleanLiteralAccess().getValueAlternatives_0(), "rule__BooleanLiteral__ValueAlternatives_0");
 					put(grammarAccess.getQueryAccess().getGroup(), "rule__Query__Group__0");
 					put(grammarAccess.getFromStatementAccess().getGroup(), "rule__FromStatement__Group__0");
 					put(grammarAccess.getFromStatementAccess().getGroup_2(), "rule__FromStatement__Group_2__0");
@@ -43,8 +47,13 @@ public class D3qlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAggregateRootAccess().getGroup_1(), "rule__AggregateRoot__Group_1__0");
 					put(grammarAccess.getSelectStatementAccess().getGroup(), "rule__SelectStatement__Group__0");
 					put(grammarAccess.getSelectStatementAccess().getGroup_2(), "rule__SelectStatement__Group_2__0");
+					put(grammarAccess.getSelectExpressionAccess().getGroup(), "rule__SelectExpression__Group__0");
+					put(grammarAccess.getSelectExpressionAccess().getGroup_1(), "rule__SelectExpression__Group_1__0");
 					put(grammarAccess.getPathExpressionAccess().getGroup(), "rule__PathExpression__Group__0");
-					put(grammarAccess.getPathExpressionAccess().getGroup_2(), "rule__PathExpression__Group_2__0");
+					put(grammarAccess.getPathExpressionAccess().getGroup_1(), "rule__PathExpression__Group_1__0");
+					put(grammarAccess.getPathExpressionAccess().getGroup_1_1(), "rule__PathExpression__Group_1_1__0");
+					put(grammarAccess.getFunctionCallAccess().getGroup(), "rule__FunctionCall__Group__0");
+					put(grammarAccess.getFunctionCallAccess().getGroup_3(), "rule__FunctionCall__Group_3__0");
 					put(grammarAccess.getQueryAccess().getFromStatementAssignment_0(), "rule__Query__FromStatementAssignment_0");
 					put(grammarAccess.getQueryAccess().getSelectStatementAssignment_1(), "rule__Query__SelectStatementAssignment_1");
 					put(grammarAccess.getFromStatementAccess().getAggregatesAssignment_1(), "rule__FromStatement__AggregatesAssignment_1");
@@ -52,12 +61,21 @@ public class D3qlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAggregateRootAccess().getNameAssignment_0(), "rule__AggregateRoot__NameAssignment_0");
 					put(grammarAccess.getAggregateRootAccess().getAliasAssignment_1_1(), "rule__AggregateRoot__AliasAssignment_1_1");
 					put(grammarAccess.getAliasAccess().getNameAssignment(), "rule__Alias__NameAssignment");
-					put(grammarAccess.getSelectStatementAccess().getPathsAssignment_1(), "rule__SelectStatement__PathsAssignment_1");
-					put(grammarAccess.getSelectStatementAccess().getPathsAssignment_2_1(), "rule__SelectStatement__PathsAssignment_2_1");
+					put(grammarAccess.getSelectStatementAccess().getExpressionsAssignment_1(), "rule__SelectStatement__ExpressionsAssignment_1");
+					put(grammarAccess.getSelectStatementAccess().getExpressionsAssignment_2_1(), "rule__SelectStatement__ExpressionsAssignment_2_1");
+					put(grammarAccess.getSelectExpressionAccess().getExpressionAssignment_0(), "rule__SelectExpression__ExpressionAssignment_0");
+					put(grammarAccess.getSelectExpressionAccess().getAliasAssignment_1_1(), "rule__SelectExpression__AliasAssignment_1_1");
 					put(grammarAccess.getPathExpressionAccess().getHeadAssignment_0(), "rule__PathExpression__HeadAssignment_0");
-					put(grammarAccess.getPathExpressionAccess().getTailAssignment_2_0(), "rule__PathExpression__TailAssignment_2_0");
-					put(grammarAccess.getPathExpressionAccess().getTailAssignment_3(), "rule__PathExpression__TailAssignment_3");
+					put(grammarAccess.getPathExpressionAccess().getTailAssignment_1_1_0(), "rule__PathExpression__TailAssignment_1_1_0");
+					put(grammarAccess.getPathExpressionAccess().getTailAssignment_1_2(), "rule__PathExpression__TailAssignment_1_2");
 					put(grammarAccess.getPathElementAccess().getNameAssignment(), "rule__PathElement__NameAssignment");
+					put(grammarAccess.getFunctionCallAccess().getFunctionAssignment_0(), "rule__FunctionCall__FunctionAssignment_0");
+					put(grammarAccess.getFunctionCallAccess().getArgumentsAssignment_2(), "rule__FunctionCall__ArgumentsAssignment_2");
+					put(grammarAccess.getFunctionCallAccess().getArgumentsAssignment_3_1(), "rule__FunctionCall__ArgumentsAssignment_3_1");
+					put(grammarAccess.getFunctionArgumentAccess().getValueAssignment(), "rule__FunctionArgument__ValueAssignment");
+					put(grammarAccess.getIntegerLiteralAccess().getValueAssignment(), "rule__IntegerLiteral__ValueAssignment");
+					put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
+					put(grammarAccess.getBooleanLiteralAccess().getValueAssignment(), "rule__BooleanLiteral__ValueAssignment");
 				}
 			};
 		}

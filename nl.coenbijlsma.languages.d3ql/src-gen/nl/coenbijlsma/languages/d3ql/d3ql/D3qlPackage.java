@@ -226,13 +226,13 @@ public interface D3qlPackage extends EPackage
   int SELECT_STATEMENT = 5;
 
   /**
-   * The feature id for the '<em><b>Paths</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECT_STATEMENT__PATHS = 0;
+  int SELECT_STATEMENT__EXPRESSIONS = 0;
 
   /**
    * The number of structural features of the '<em>Select Statement</em>' class.
@@ -244,6 +244,43 @@ public interface D3qlPackage extends EPackage
   int SELECT_STATEMENT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectExpressionImpl <em>Select Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectExpressionImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getSelectExpression()
+   * @generated
+   */
+  int SELECT_EXPRESSION = 6;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_EXPRESSION__EXPRESSION = 0;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_EXPRESSION__ALIAS = 1;
+
+  /**
+   * The number of structural features of the '<em>Select Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.PathExpressionImpl <em>Path Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -251,7 +288,7 @@ public interface D3qlPackage extends EPackage
    * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getPathExpression()
    * @generated
    */
-  int PATH_EXPRESSION = 6;
+  int PATH_EXPRESSION = 7;
 
   /**
    * The feature id for the '<em><b>Head</b></em>' reference.
@@ -288,7 +325,7 @@ public interface D3qlPackage extends EPackage
    * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getPathElement()
    * @generated
    */
-  int PATH_ELEMENT = 7;
+  int PATH_ELEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -307,6 +344,174 @@ public interface D3qlPackage extends EPackage
    * @ordered
    */
   int PATH_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionCallImpl <em>Function Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionCallImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getFunctionCall()
+   * @generated
+   */
+  int FUNCTION_CALL = 9;
+
+  /**
+   * The feature id for the '<em><b>Function</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL__FUNCTION = 0;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL__ARGUMENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Function Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl <em>Function Argument</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getFunctionArgument()
+   * @generated
+   */
+  int FUNCTION_ARGUMENT = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_ARGUMENT__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Function Argument</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_ARGUMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.LiteralImpl <em>Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.LiteralImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getLiteral()
+   * @generated
+   */
+  int LITERAL = 11;
+
+  /**
+   * The number of structural features of the '<em>Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.IntegerLiteralImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getIntegerLiteral()
+   * @generated
+   */
+  int INTEGER_LITERAL = 12;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Integer Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.StringLiteralImpl <em>String Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.StringLiteralImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getStringLiteral()
+   * @generated
+   */
+  int STRING_LITERAL = 13;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.BooleanLiteralImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getBooleanLiteral()
+   * @generated
+   */
+  int BOOLEAN_LITERAL = 14;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL__VALUE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
 
 
   /**
@@ -425,15 +630,47 @@ public interface D3qlPackage extends EPackage
   EClass getSelectStatement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement#getPaths <em>Paths</em>}'.
+   * Returns the meta object for the containment reference list '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement#getExpressions <em>Expressions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Paths</em>'.
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement#getPaths()
+   * @return the meta object for the containment reference list '<em>Expressions</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement#getExpressions()
    * @see #getSelectStatement()
    * @generated
    */
-  EReference getSelectStatement_Paths();
+  EReference getSelectStatement_Expressions();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression <em>Select Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Select Expression</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression
+   * @generated
+   */
+  EClass getSelectExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getExpression()
+   * @see #getSelectExpression()
+   * @generated
+   */
+  EReference getSelectExpression_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getAlias <em>Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Alias</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getAlias()
+   * @see #getSelectExpression()
+   * @generated
+   */
+  EReference getSelectExpression_Alias();
 
   /**
    * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.PathExpression <em>Path Expression</em>}'.
@@ -487,6 +724,132 @@ public interface D3qlPackage extends EPackage
    * @generated
    */
   EAttribute getPathElement_Name();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall <em>Function Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Call</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall
+   * @generated
+   */
+  EClass getFunctionCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall#getFunction <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Function</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall#getFunction()
+   * @see #getFunctionCall()
+   * @generated
+   */
+  EAttribute getFunctionCall_Function();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Arguments</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall#getArguments()
+   * @see #getFunctionCall()
+   * @generated
+   */
+  EReference getFunctionCall_Arguments();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument <em>Function Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Argument</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument
+   * @generated
+   */
+  EClass getFunctionArgument();
+
+  /**
+   * Returns the meta object for the containment reference '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getValue()
+   * @see #getFunctionArgument()
+   * @generated
+   */
+  EReference getFunctionArgument_Value();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.Literal <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Literal</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.Literal
+   * @generated
+   */
+  EClass getLiteral();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral <em>Integer Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Integer Literal</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral
+   * @generated
+   */
+  EClass getIntegerLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral#getValue()
+   * @see #getIntegerLiteral()
+   * @generated
+   */
+  EAttribute getIntegerLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral
+   * @generated
+   */
+  EClass getStringLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral#getValue()
+   * @see #getStringLiteral()
+   * @generated
+   */
+  EAttribute getStringLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral <em>Boolean Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Literal</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral
+   * @generated
+   */
+  EClass getBooleanLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral#getValue()
+   * @see #getBooleanLiteral()
+   * @generated
+   */
+  EAttribute getBooleanLiteral_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -612,12 +975,38 @@ public interface D3qlPackage extends EPackage
     EClass SELECT_STATEMENT = eINSTANCE.getSelectStatement();
 
     /**
-     * The meta object literal for the '<em><b>Paths</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELECT_STATEMENT__PATHS = eINSTANCE.getSelectStatement_Paths();
+    EReference SELECT_STATEMENT__EXPRESSIONS = eINSTANCE.getSelectStatement_Expressions();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectExpressionImpl <em>Select Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectExpressionImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getSelectExpression()
+     * @generated
+     */
+    EClass SELECT_EXPRESSION = eINSTANCE.getSelectExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_EXPRESSION__EXPRESSION = eINSTANCE.getSelectExpression_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Alias</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECT_EXPRESSION__ALIAS = eINSTANCE.getSelectExpression_Alias();
 
     /**
      * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.PathExpressionImpl <em>Path Expression</em>}' class.
@@ -662,6 +1051,114 @@ public interface D3qlPackage extends EPackage
      * @generated
      */
     EAttribute PATH_ELEMENT__NAME = eINSTANCE.getPathElement_Name();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionCallImpl <em>Function Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionCallImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getFunctionCall()
+     * @generated
+     */
+    EClass FUNCTION_CALL = eINSTANCE.getFunctionCall();
+
+    /**
+     * The meta object literal for the '<em><b>Function</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION_CALL__FUNCTION = eINSTANCE.getFunctionCall_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_CALL__ARGUMENTS = eINSTANCE.getFunctionCall_Arguments();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl <em>Function Argument</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getFunctionArgument()
+     * @generated
+     */
+    EClass FUNCTION_ARGUMENT = eINSTANCE.getFunctionArgument();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_ARGUMENT__VALUE = eINSTANCE.getFunctionArgument_Value();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.LiteralImpl <em>Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.LiteralImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getLiteral()
+     * @generated
+     */
+    EClass LITERAL = eINSTANCE.getLiteral();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.IntegerLiteralImpl <em>Integer Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.IntegerLiteralImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getIntegerLiteral()
+     * @generated
+     */
+    EClass INTEGER_LITERAL = eINSTANCE.getIntegerLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTEGER_LITERAL__VALUE = eINSTANCE.getIntegerLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.StringLiteralImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getStringLiteral()
+     * @generated
+     */
+    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.BooleanLiteralImpl <em>Boolean Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.BooleanLiteralImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getBooleanLiteral()
+     * @generated
+     */
+    EClass BOOLEAN_LITERAL = eINSTANCE.getBooleanLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN_LITERAL__VALUE = eINSTANCE.getBooleanLiteral_Value();
 
   }
 

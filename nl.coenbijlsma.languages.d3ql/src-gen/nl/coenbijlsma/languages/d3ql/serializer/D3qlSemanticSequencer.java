@@ -7,12 +7,18 @@ import com.google.inject.Inject;
 import java.util.Set;
 import nl.coenbijlsma.languages.d3ql.d3ql.AggregateRoot;
 import nl.coenbijlsma.languages.d3ql.d3ql.Alias;
+import nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral;
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
 import nl.coenbijlsma.languages.d3ql.d3ql.FromStatement;
+import nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument;
+import nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall;
+import nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral;
 import nl.coenbijlsma.languages.d3ql.d3ql.PathElement;
 import nl.coenbijlsma.languages.d3ql.d3ql.PathExpression;
 import nl.coenbijlsma.languages.d3ql.d3ql.Query;
+import nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression;
 import nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement;
+import nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral;
 import nl.coenbijlsma.languages.d3ql.services.D3qlGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -44,8 +50,20 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case D3qlPackage.ALIAS:
 				sequence_Alias(context, (Alias) semanticObject); 
 				return; 
+			case D3qlPackage.BOOLEAN_LITERAL:
+				sequence_BooleanLiteral(context, (BooleanLiteral) semanticObject); 
+				return; 
 			case D3qlPackage.FROM_STATEMENT:
 				sequence_FromStatement(context, (FromStatement) semanticObject); 
+				return; 
+			case D3qlPackage.FUNCTION_ARGUMENT:
+				sequence_FunctionArgument(context, (FunctionArgument) semanticObject); 
+				return; 
+			case D3qlPackage.FUNCTION_CALL:
+				sequence_FunctionCall(context, (FunctionCall) semanticObject); 
+				return; 
+			case D3qlPackage.INTEGER_LITERAL:
+				sequence_IntegerLiteral(context, (IntegerLiteral) semanticObject); 
 				return; 
 			case D3qlPackage.PATH_ELEMENT:
 				sequence_PathElement(context, (PathElement) semanticObject); 
@@ -56,8 +74,14 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case D3qlPackage.QUERY:
 				sequence_Query(context, (Query) semanticObject); 
 				return; 
+			case D3qlPackage.SELECT_EXPRESSION:
+				sequence_SelectExpression(context, (SelectExpression) semanticObject); 
+				return; 
 			case D3qlPackage.SELECT_STATEMENT:
 				sequence_SelectStatement(context, (SelectStatement) semanticObject); 
+				return; 
+			case D3qlPackage.STRING_LITERAL:
+				sequence_StringLiteral(context, (StringLiteral) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -98,6 +122,19 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Literal returns BooleanLiteral
+	 *     BooleanLiteral returns BooleanLiteral
+	 *
+	 * Constraint:
+	 *     (value='true' | value='false')
+	 */
+	protected void sequence_BooleanLiteral(ISerializationContext context, BooleanLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     FromStatement returns FromStatement
 	 *
 	 * Constraint:
@@ -105,6 +142,49 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_FromStatement(ISerializationContext context, FromStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FunctionArgument returns FunctionArgument
+	 *
+	 * Constraint:
+	 *     (value=PathExpression | value=Literal)
+	 */
+	protected void sequence_FunctionArgument(ISerializationContext context, FunctionArgument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FunctionCall returns FunctionCall
+	 *
+	 * Constraint:
+	 *     (function=ID arguments+=FunctionArgument arguments+=FunctionArgument*)
+	 */
+	protected void sequence_FunctionCall(ISerializationContext context, FunctionCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Literal returns IntegerLiteral
+	 *     IntegerLiteral returns IntegerLiteral
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_IntegerLiteral(ISerializationContext context, IntegerLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.INTEGER_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.INTEGER_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -131,7 +211,7 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PathExpression returns PathExpression
 	 *
 	 * Constraint:
-	 *     (head=[Named|ID] tail+=PathElement* tail+=PathElement)
+	 *     (head=[Named|ID] (tail+=PathElement* tail+=PathElement)?)
 	 */
 	protected void sequence_PathExpression(ISerializationContext context, PathExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -161,13 +241,44 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SelectExpression returns SelectExpression
+	 *
+	 * Constraint:
+	 *     ((expression=PathExpression | expression=FunctionCall | expression=Literal) alias=Alias?)
+	 */
+	protected void sequence_SelectExpression(ISerializationContext context, SelectExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     SelectStatement returns SelectStatement
 	 *
 	 * Constraint:
-	 *     (paths+=PathExpression paths+=PathExpression*)
+	 *     (expressions+=SelectExpression expressions+=SelectExpression*)
 	 */
 	protected void sequence_SelectStatement(ISerializationContext context, SelectStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Literal returns StringLiteral
+	 *     StringLiteral returns StringLiteral
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_StringLiteral(ISerializationContext context, StringLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.STRING_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.STRING_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

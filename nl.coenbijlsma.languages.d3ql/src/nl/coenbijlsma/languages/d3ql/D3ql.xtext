@@ -23,13 +23,41 @@ Alias:
 ;
 
 SelectStatement:
-	'select' paths+=PathExpression (',' paths+=PathExpression)*
+	'select' expressions+=SelectExpression (',' expressions+=SelectExpression)*
+;
+
+SelectExpression:
+	expression=(PathExpression | FunctionCall | Literal) ('as' alias=Alias)?
 ;
 
 PathExpression:
-	head=[Named] '.' (tail+=PathElement '.')* tail+=PathElement
+	head=[Named] ('.' (tail+=PathElement '.')* tail+=PathElement)?
 ;
 
 PathElement:
 	name=ID
+;
+
+FunctionCall:
+	function=ID '(' arguments+=FunctionArgument (',' arguments+=FunctionArgument)*  ')'
+;
+
+FunctionArgument:
+	value=(PathExpression | Literal)
+;
+
+Literal:
+	IntegerLiteral | StringLiteral | BooleanLiteral
+;
+
+IntegerLiteral:
+	value=INT
+;
+
+StringLiteral:
+	value=STRING
+;
+
+BooleanLiteral:
+	value=('true' | 'false')
 ;

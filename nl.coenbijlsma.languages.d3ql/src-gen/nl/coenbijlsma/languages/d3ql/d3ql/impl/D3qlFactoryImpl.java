@@ -71,8 +71,15 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
       case D3qlPackage.AGGREGATE_ROOT: return createAggregateRoot();
       case D3qlPackage.ALIAS: return createAlias();
       case D3qlPackage.SELECT_STATEMENT: return createSelectStatement();
+      case D3qlPackage.SELECT_EXPRESSION: return createSelectExpression();
       case D3qlPackage.PATH_EXPRESSION: return createPathExpression();
       case D3qlPackage.PATH_ELEMENT: return createPathElement();
+      case D3qlPackage.FUNCTION_CALL: return createFunctionCall();
+      case D3qlPackage.FUNCTION_ARGUMENT: return createFunctionArgument();
+      case D3qlPackage.LITERAL: return createLiteral();
+      case D3qlPackage.INTEGER_LITERAL: return createIntegerLiteral();
+      case D3qlPackage.STRING_LITERAL: return createStringLiteral();
+      case D3qlPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -149,6 +156,17 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public SelectExpression createSelectExpression()
+  {
+    SelectExpressionImpl selectExpression = new SelectExpressionImpl();
+    return selectExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PathExpression createPathExpression()
   {
     PathExpressionImpl pathExpression = new PathExpressionImpl();
@@ -164,6 +182,72 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
   {
     PathElementImpl pathElement = new PathElementImpl();
     return pathElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionCall createFunctionCall()
+  {
+    FunctionCallImpl functionCall = new FunctionCallImpl();
+    return functionCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionArgument createFunctionArgument()
+  {
+    FunctionArgumentImpl functionArgument = new FunctionArgumentImpl();
+    return functionArgument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Literal createLiteral()
+  {
+    LiteralImpl literal = new LiteralImpl();
+    return literal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntegerLiteral createIntegerLiteral()
+  {
+    IntegerLiteralImpl integerLiteral = new IntegerLiteralImpl();
+    return integerLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringLiteral createStringLiteral()
+  {
+    StringLiteralImpl stringLiteral = new StringLiteralImpl();
+    return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanLiteral createBooleanLiteral()
+  {
+    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
+    return booleanLiteral;
   }
 
   /**

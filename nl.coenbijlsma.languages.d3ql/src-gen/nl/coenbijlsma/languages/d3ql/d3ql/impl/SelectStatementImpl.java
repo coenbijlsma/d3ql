@@ -6,7 +6,7 @@ package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 import java.util.Collection;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
-import nl.coenbijlsma.languages.d3ql.d3ql.PathExpression;
+import nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression;
 import nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectStatementImpl#getPaths <em>Paths</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectStatementImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SelectStatementImpl extends MinimalEObjectImpl.Container implements SelectStatement
 {
   /**
-   * The cached value of the '{@link #getPaths() <em>Paths</em>}' containment reference list.
+   * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPaths()
+   * @see #getExpressions()
    * @generated
    * @ordered
    */
-  protected EList<PathExpression> paths;
+  protected EList<SelectExpression> expressions;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PathExpression> getPaths()
+  public EList<SelectExpression> getExpressions()
   {
-    if (paths == null)
+    if (expressions == null)
     {
-      paths = new EObjectContainmentEList<PathExpression>(PathExpression.class, this, D3qlPackage.SELECT_STATEMENT__PATHS);
+      expressions = new EObjectContainmentEList<SelectExpression>(SelectExpression.class, this, D3qlPackage.SELECT_STATEMENT__EXPRESSIONS);
     }
-    return paths;
+    return expressions;
   }
 
   /**
@@ -91,8 +91,8 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__PATHS:
-        return ((InternalEList<?>)getPaths()).basicRemove(otherEnd, msgs);
+      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
+        return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__PATHS:
-        return getPaths();
+      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
+        return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__PATHS:
-        getPaths().clear();
-        getPaths().addAll((Collection<? extends PathExpression>)newValue);
+      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
+        getExpressions().clear();
+        getExpressions().addAll((Collection<? extends SelectExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__PATHS:
-        getPaths().clear();
+      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
+        getExpressions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__PATHS:
-        return paths != null && !paths.isEmpty();
+      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
+        return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

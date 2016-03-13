@@ -5,14 +5,21 @@ package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.AggregateRoot;
 import nl.coenbijlsma.languages.d3ql.d3ql.Alias;
+import nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral;
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlFactory;
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
 import nl.coenbijlsma.languages.d3ql.d3ql.FromStatement;
+import nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument;
+import nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall;
+import nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral;
+import nl.coenbijlsma.languages.d3ql.d3ql.Literal;
 import nl.coenbijlsma.languages.d3ql.d3ql.Named;
 import nl.coenbijlsma.languages.d3ql.d3ql.PathElement;
 import nl.coenbijlsma.languages.d3ql.d3ql.PathExpression;
 import nl.coenbijlsma.languages.d3ql.d3ql.Query;
+import nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression;
 import nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement;
+import nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -76,6 +83,13 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass selectExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass pathExpressionEClass = null;
 
   /**
@@ -84,6 +98,48 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * @generated
    */
   private EClass pathElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionArgumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass literalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass integerLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanLiteralEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -263,9 +319,39 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSelectStatement_Paths()
+  public EReference getSelectStatement_Expressions()
   {
     return (EReference)selectStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSelectExpression()
+  {
+    return selectExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectExpression_Expression()
+  {
+    return (EReference)selectExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectExpression_Alias()
+  {
+    return (EReference)selectExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -323,6 +409,126 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFunctionCall()
+  {
+    return functionCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionCall_Function()
+  {
+    return (EAttribute)functionCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionCall_Arguments()
+  {
+    return (EReference)functionCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionArgument()
+  {
+    return functionArgumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionArgument_Value()
+  {
+    return (EReference)functionArgumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLiteral()
+  {
+    return literalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIntegerLiteral()
+  {
+    return integerLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIntegerLiteral_Value()
+  {
+    return (EAttribute)integerLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStringLiteral()
+  {
+    return stringLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringLiteral_Value()
+  {
+    return (EAttribute)stringLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBooleanLiteral()
+  {
+    return booleanLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBooleanLiteral_Value()
+  {
+    return (EAttribute)booleanLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public D3qlFactory getD3qlFactory()
   {
     return (D3qlFactory)getEFactoryInstance();
@@ -364,7 +570,11 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
     aliasEClass = createEClass(ALIAS);
 
     selectStatementEClass = createEClass(SELECT_STATEMENT);
-    createEReference(selectStatementEClass, SELECT_STATEMENT__PATHS);
+    createEReference(selectStatementEClass, SELECT_STATEMENT__EXPRESSIONS);
+
+    selectExpressionEClass = createEClass(SELECT_EXPRESSION);
+    createEReference(selectExpressionEClass, SELECT_EXPRESSION__EXPRESSION);
+    createEReference(selectExpressionEClass, SELECT_EXPRESSION__ALIAS);
 
     pathExpressionEClass = createEClass(PATH_EXPRESSION);
     createEReference(pathExpressionEClass, PATH_EXPRESSION__HEAD);
@@ -372,6 +582,24 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
 
     pathElementEClass = createEClass(PATH_ELEMENT);
     createEAttribute(pathElementEClass, PATH_ELEMENT__NAME);
+
+    functionCallEClass = createEClass(FUNCTION_CALL);
+    createEAttribute(functionCallEClass, FUNCTION_CALL__FUNCTION);
+    createEReference(functionCallEClass, FUNCTION_CALL__ARGUMENTS);
+
+    functionArgumentEClass = createEClass(FUNCTION_ARGUMENT);
+    createEReference(functionArgumentEClass, FUNCTION_ARGUMENT__VALUE);
+
+    literalEClass = createEClass(LITERAL);
+
+    integerLiteralEClass = createEClass(INTEGER_LITERAL);
+    createEAttribute(integerLiteralEClass, INTEGER_LITERAL__VALUE);
+
+    stringLiteralEClass = createEClass(STRING_LITERAL);
+    createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+
+    booleanLiteralEClass = createEClass(BOOLEAN_LITERAL);
+    createEAttribute(booleanLiteralEClass, BOOLEAN_LITERAL__VALUE);
   }
 
   /**
@@ -405,6 +633,9 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
     // Add supertypes to classes
     aggregateRootEClass.getESuperTypes().add(this.getNamed());
     aliasEClass.getESuperTypes().add(this.getNamed());
+    integerLiteralEClass.getESuperTypes().add(this.getLiteral());
+    stringLiteralEClass.getESuperTypes().add(this.getLiteral());
+    booleanLiteralEClass.getESuperTypes().add(this.getLiteral());
 
     // Initialize classes and features; add operations and parameters
     initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -423,7 +654,11 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
     initEClass(aliasEClass, Alias.class, "Alias", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(selectStatementEClass, SelectStatement.class, "SelectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelectStatement_Paths(), this.getPathExpression(), null, "paths", null, 0, -1, SelectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectStatement_Expressions(), this.getSelectExpression(), null, "expressions", null, 0, -1, SelectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selectExpressionEClass, SelectExpression.class, "SelectExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelectExpression_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, SelectExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectExpression_Alias(), this.getAlias(), null, "alias", null, 0, 1, SelectExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pathExpressionEClass, PathExpression.class, "PathExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPathExpression_Head(), this.getNamed(), null, "head", null, 0, 1, PathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -431,6 +666,24 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
 
     initEClass(pathElementEClass, PathElement.class, "PathElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPathElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PathElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCallEClass, FunctionCall.class, "FunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionCall_Function(), ecorePackage.getEString(), "function", null, 0, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionCall_Arguments(), this.getFunctionArgument(), null, "arguments", null, 0, -1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionArgumentEClass, FunctionArgument.class, "FunctionArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionArgument_Value(), ecorePackage.getEObject(), null, "value", null, 0, 1, FunctionArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(integerLiteralEClass, IntegerLiteral.class, "IntegerLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntegerLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanLiteralEClass, BooleanLiteral.class, "BooleanLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, BooleanLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
