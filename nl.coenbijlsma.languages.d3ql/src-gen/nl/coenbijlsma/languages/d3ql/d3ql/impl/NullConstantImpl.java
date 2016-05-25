@@ -4,7 +4,7 @@
 package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
-import nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral;
+import nl.coenbijlsma.languages.d3ql.d3ql.NullConstant;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Literal</b></em>'.
+ * An implementation of the model object '<em><b>Null Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.StringLiteralImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.NullConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StringLiteralImpl extends LiteralImpl implements StringLiteral
+public class NullConstantImpl extends ExpressionImpl implements NullConstant
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -52,7 +52,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StringLiteralImpl()
+  protected NullConstantImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
   @Override
   protected EClass eStaticClass()
   {
-    return D3qlPackage.Literals.STRING_LITERAL;
+    return D3qlPackage.Literals.NULL_CONSTANT;
   }
 
   /**
@@ -88,7 +88,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.STRING_LITERAL__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.NULL_CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,7 +101,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.STRING_LITERAL__VALUE:
+      case D3qlPackage.NULL_CONSTANT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.STRING_LITERAL__VALUE:
+      case D3qlPackage.NULL_CONSTANT__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.STRING_LITERAL__VALUE:
+      case D3qlPackage.NULL_CONSTANT__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.STRING_LITERAL__VALUE:
+      case D3qlPackage.NULL_CONSTANT__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -174,4 +174,4 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
     return result.toString();
   }
 
-} //StringLiteralImpl
+} //NullConstantImpl

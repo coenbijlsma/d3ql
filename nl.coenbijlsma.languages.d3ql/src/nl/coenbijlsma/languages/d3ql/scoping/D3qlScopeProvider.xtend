@@ -3,9 +3,7 @@
  */
 package nl.coenbijlsma.languages.d3ql.scoping
 
-import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage
 import nl.coenbijlsma.languages.d3ql.d3ql.Named
-import nl.coenbijlsma.languages.d3ql.d3ql.PathExpression
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
@@ -21,18 +19,10 @@ class D3qlScopeProvider extends AbstractD3qlScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
 		
-		// If the current context is a path expression, and
-		// if the current element is the head expression of that
-		// path, return all instances of the Named type 
-		if (context instanceof PathExpression 
-			&& reference == D3qlPackage.Literals.PATH_EXPRESSION__HEAD
-		) {
-			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement, Named)
-			
-			return Scopes.scopeFor(candidates)
-		}
-		super.getScope(context, reference)
+		val rootElement = EcoreUtil2.getRootContainer(context)
+		val candidates = EcoreUtil2.getAllContentsOfType(rootElement, Named)
+		
+		return Scopes.scopeFor(candidates)
 	}
 	
 }

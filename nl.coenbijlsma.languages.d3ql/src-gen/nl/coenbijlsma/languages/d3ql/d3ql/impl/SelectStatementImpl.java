@@ -6,9 +6,10 @@ package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 import java.util.Collection;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
-import nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression;
 import nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement;
+import nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,7 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectStatementImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectStatementImpl#getArterisk <em>Arterisk</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectStatementImpl#getSelections <em>Selections</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +40,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SelectStatementImpl extends MinimalEObjectImpl.Container implements SelectStatement
 {
   /**
-   * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
+   * The default value of the '{@link #getArterisk() <em>Arterisk</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpressions()
+   * @see #getArterisk()
    * @generated
    * @ordered
    */
-  protected EList<SelectExpression> expressions;
+  protected static final String ARTERISK_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getArterisk() <em>Arterisk</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArterisk()
+   * @generated
+   * @ordered
+   */
+  protected String arterisk = ARTERISK_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSelections() <em>Selections</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSelections()
+   * @generated
+   * @ordered
+   */
+  protected EList<SelectionItem> selections;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +95,36 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SelectExpression> getExpressions()
+  public String getArterisk()
   {
-    if (expressions == null)
+    return arterisk;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArterisk(String newArterisk)
+  {
+    String oldArterisk = arterisk;
+    arterisk = newArterisk;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECT_STATEMENT__ARTERISK, oldArterisk, arterisk));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<SelectionItem> getSelections()
+  {
+    if (selections == null)
     {
-      expressions = new EObjectContainmentEList<SelectExpression>(SelectExpression.class, this, D3qlPackage.SELECT_STATEMENT__EXPRESSIONS);
+      selections = new EObjectContainmentEList<SelectionItem>(SelectionItem.class, this, D3qlPackage.SELECT_STATEMENT__SELECTIONS);
     }
-    return expressions;
+    return selections;
   }
 
   /**
@@ -91,8 +137,8 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
-        return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
+      case D3qlPackage.SELECT_STATEMENT__SELECTIONS:
+        return ((InternalEList<?>)getSelections()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +153,10 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
-        return getExpressions();
+      case D3qlPackage.SELECT_STATEMENT__ARTERISK:
+        return getArterisk();
+      case D3qlPackage.SELECT_STATEMENT__SELECTIONS:
+        return getSelections();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +172,12 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
-        getExpressions().clear();
-        getExpressions().addAll((Collection<? extends SelectExpression>)newValue);
+      case D3qlPackage.SELECT_STATEMENT__ARTERISK:
+        setArterisk((String)newValue);
+        return;
+      case D3qlPackage.SELECT_STATEMENT__SELECTIONS:
+        getSelections().clear();
+        getSelections().addAll((Collection<? extends SelectionItem>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +193,11 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
-        getExpressions().clear();
+      case D3qlPackage.SELECT_STATEMENT__ARTERISK:
+        setArterisk(ARTERISK_EDEFAULT);
+        return;
+      case D3qlPackage.SELECT_STATEMENT__SELECTIONS:
+        getSelections().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +213,29 @@ public class SelectStatementImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_STATEMENT__EXPRESSIONS:
-        return expressions != null && !expressions.isEmpty();
+      case D3qlPackage.SELECT_STATEMENT__ARTERISK:
+        return ARTERISK_EDEFAULT == null ? arterisk != null : !ARTERISK_EDEFAULT.equals(arterisk);
+      case D3qlPackage.SELECT_STATEMENT__SELECTIONS:
+        return selections != null && !selections.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (arterisk: ");
+    result.append(arterisk);
+    result.append(')');
+    return result.toString();
   }
 
 } //SelectStatementImpl

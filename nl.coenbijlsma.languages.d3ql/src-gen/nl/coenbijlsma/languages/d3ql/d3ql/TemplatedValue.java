@@ -6,21 +6,21 @@ package nl.coenbijlsma.languages.d3ql.d3ql;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Boolean Literal</b></em>'.
+ * A representation of the model object '<em><b>Templated Value</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getBooleanLiteral()
+ * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getTemplatedValue()
  * @model
  * @generated
  */
-public interface BooleanLiteral extends Literal
+public interface TemplatedValue extends Expression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -32,14 +32,14 @@ public interface BooleanLiteral extends Literal
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getBooleanLiteral_Value()
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getTemplatedValue_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -48,4 +48,4 @@ public interface BooleanLiteral extends Literal
    */
   void setValue(String value);
 
-} // BooleanLiteral
+} // TemplatedValue

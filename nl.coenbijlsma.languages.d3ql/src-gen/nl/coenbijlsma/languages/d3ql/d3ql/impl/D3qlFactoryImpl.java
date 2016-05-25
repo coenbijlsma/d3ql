@@ -67,19 +67,25 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
     {
       case D3qlPackage.QUERY: return createQuery();
       case D3qlPackage.FROM_STATEMENT: return createFromStatement();
+      case D3qlPackage.SELECT_STATEMENT: return createSelectStatement();
+      case D3qlPackage.SELECTION_ITEM: return createSelectionItem();
+      case D3qlPackage.WHERE_STATEMENT: return createWhereStatement();
       case D3qlPackage.NAMED: return createNamed();
       case D3qlPackage.AGGREGATE_ROOT: return createAggregateRoot();
       case D3qlPackage.ALIAS: return createAlias();
-      case D3qlPackage.SELECT_STATEMENT: return createSelectStatement();
-      case D3qlPackage.SELECT_EXPRESSION: return createSelectExpression();
-      case D3qlPackage.PATH_EXPRESSION: return createPathExpression();
-      case D3qlPackage.PATH_ELEMENT: return createPathElement();
-      case D3qlPackage.FUNCTION_CALL: return createFunctionCall();
+      case D3qlPackage.EXPRESSION: return createExpression();
       case D3qlPackage.FUNCTION_ARGUMENT: return createFunctionArgument();
-      case D3qlPackage.LITERAL: return createLiteral();
-      case D3qlPackage.INTEGER_LITERAL: return createIntegerLiteral();
-      case D3qlPackage.STRING_LITERAL: return createStringLiteral();
-      case D3qlPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
+      case D3qlPackage.OR: return createOr();
+      case D3qlPackage.AND: return createAnd();
+      case D3qlPackage.EQUALITY: return createEquality();
+      case D3qlPackage.COMPARISON: return createComparison();
+      case D3qlPackage.NOT: return createNot();
+      case D3qlPackage.TEMPLATED_VALUE: return createTemplatedValue();
+      case D3qlPackage.INT_CONSTANT: return createIntConstant();
+      case D3qlPackage.STRING_CONSTANT: return createStringConstant();
+      case D3qlPackage.BOOLEAN_CONSTANT: return createBooleanConstant();
+      case D3qlPackage.NULL_CONSTANT: return createNullConstant();
+      case D3qlPackage.REFERENCE: return createReference();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -105,6 +111,39 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
   {
     FromStatementImpl fromStatement = new FromStatementImpl();
     return fromStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SelectStatement createSelectStatement()
+  {
+    SelectStatementImpl selectStatement = new SelectStatementImpl();
+    return selectStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SelectionItem createSelectionItem()
+  {
+    SelectionItemImpl selectionItem = new SelectionItemImpl();
+    return selectionItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WhereStatement createWhereStatement()
+  {
+    WhereStatementImpl whereStatement = new WhereStatementImpl();
+    return whereStatement;
   }
 
   /**
@@ -145,54 +184,10 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SelectStatement createSelectStatement()
+  public Expression createExpression()
   {
-    SelectStatementImpl selectStatement = new SelectStatementImpl();
-    return selectStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SelectExpression createSelectExpression()
-  {
-    SelectExpressionImpl selectExpression = new SelectExpressionImpl();
-    return selectExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PathExpression createPathExpression()
-  {
-    PathExpressionImpl pathExpression = new PathExpressionImpl();
-    return pathExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PathElement createPathElement()
-  {
-    PathElementImpl pathElement = new PathElementImpl();
-    return pathElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FunctionCall createFunctionCall()
-  {
-    FunctionCallImpl functionCall = new FunctionCallImpl();
-    return functionCall;
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**
@@ -211,10 +206,10 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Literal createLiteral()
+  public Or createOr()
   {
-    LiteralImpl literal = new LiteralImpl();
-    return literal;
+    OrImpl or = new OrImpl();
+    return or;
   }
 
   /**
@@ -222,10 +217,10 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public IntegerLiteral createIntegerLiteral()
+  public And createAnd()
   {
-    IntegerLiteralImpl integerLiteral = new IntegerLiteralImpl();
-    return integerLiteral;
+    AndImpl and = new AndImpl();
+    return and;
   }
 
   /**
@@ -233,10 +228,10 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StringLiteral createStringLiteral()
+  public Equality createEquality()
   {
-    StringLiteralImpl stringLiteral = new StringLiteralImpl();
-    return stringLiteral;
+    EqualityImpl equality = new EqualityImpl();
+    return equality;
   }
 
   /**
@@ -244,10 +239,87 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BooleanLiteral createBooleanLiteral()
+  public Comparison createComparison()
   {
-    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
-    return booleanLiteral;
+    ComparisonImpl comparison = new ComparisonImpl();
+    return comparison;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Not createNot()
+  {
+    NotImpl not = new NotImpl();
+    return not;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TemplatedValue createTemplatedValue()
+  {
+    TemplatedValueImpl templatedValue = new TemplatedValueImpl();
+    return templatedValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntConstant createIntConstant()
+  {
+    IntConstantImpl intConstant = new IntConstantImpl();
+    return intConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringConstant createStringConstant()
+  {
+    StringConstantImpl stringConstant = new StringConstantImpl();
+    return stringConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanConstant createBooleanConstant()
+  {
+    BooleanConstantImpl booleanConstant = new BooleanConstantImpl();
+    return booleanConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NullConstant createNullConstant()
+  {
+    NullConstantImpl nullConstant = new NullConstantImpl();
+    return nullConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Reference createReference()
+  {
+    ReferenceImpl reference = new ReferenceImpl();
+    return reference;
   }
 
   /**

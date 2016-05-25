@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getReference <em>Reference</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getFqn <em>Fqn</em>}</li>
  * </ul>
  *
  * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getFunctionArgument()
@@ -24,29 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface FunctionArgument extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' containment reference.
+   * Returns the value of the '<em><b>Reference</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Reference</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(EObject)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getFunctionArgument_Value()
+   * @return the value of the '<em>Reference</em>' reference.
+   * @see #setReference(Named)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getFunctionArgument_Reference()
+   * @model
+   * @generated
+   */
+  Named getReference();
+
+  /**
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getReference <em>Reference</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Reference</em>' reference.
+   * @see #getReference()
+   * @generated
+   */
+  void setReference(Named value);
+
+  /**
+   * Returns the value of the '<em><b>Fqn</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fqn</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fqn</em>' containment reference.
+   * @see #setFqn(Expression)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getFunctionArgument_Fqn()
    * @model containment="true"
    * @generated
    */
-  EObject getValue();
+  Expression getFqn();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getValue <em>Value</em>}' containment reference.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument#getFqn <em>Fqn</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' containment reference.
-   * @see #getValue()
+   * @param value the new value of the '<em>Fqn</em>' containment reference.
+   * @see #getFqn()
    * @generated
    */
-  void setValue(EObject value);
+  void setFqn(Expression value);
 
 } // FunctionArgument

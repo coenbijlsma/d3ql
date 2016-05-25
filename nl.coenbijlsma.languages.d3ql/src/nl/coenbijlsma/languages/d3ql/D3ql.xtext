@@ -3,11 +3,23 @@ grammar nl.coenbijlsma.languages.d3ql.D3ql with org.eclipse.xtext.common.Termina
 generate d3ql "http://www.coenbijlsma.nl/languages/d3ql/D3ql"
 
 Query:
-	fromStatement=FromStatement selectStatement=SelectStatement
+	from=FromStatement select=SelectStatement (where=WhereStatement)?
 ;
 
 FromStatement:
 	'from' aggregates+=AggregateRoot (',' aggregates+=AggregateRoot)*
+;
+
+SelectStatement:
+	'select' ((arterisk='*') | (selections+=SelectionItem (',' selections+=SelectionItem)*))
+;
+
+SelectionItem:
+	expression=(FQN | FunctionCall) ('as' alias=Alias)?
+;
+
+WhereStatement:
+	'where' expressions+=Expression
 ;
 
 Named:
@@ -22,42 +34,58 @@ Alias:
 	name=ID
 ;
 
-SelectStatement:
-	'select' expressions+=SelectExpression (',' expressions+=SelectExpression)*
+Expression:
+	Or ({Expression.left=current} 'as' alias=Alias)?
 ;
 
-SelectExpression:
-	expression=(PathExpression | FunctionCall | Literal) ('as' alias=Alias)?
+Or returns Expression:
+	And ({Or.left=current} 'or' right=And)*
 ;
 
-PathExpression:
-	head=[Named] ('.' (tail+=PathElement '.')* tail+=PathElement)?
+And returns Expression:
+	Equality ({And.left=current} 'and' right=Equality)*
 ;
 
-PathElement:
-	name=ID
+Equality returns Expression:
+	Comparison ({Equality.left=current} op=('='|'!=') right=Comparison)*
 ;
 
-FunctionCall:
-	function=ID '(' arguments+=FunctionArgument (',' arguments+=FunctionArgument)*  ')'
+Comparison returns Expression:
+	Primary (({Comparison.left=current} op=('>='|'<='|'>'|'<'|'like') right=Primary)
+		| ({Comparison.left=current} op='between' x=Primary 'and' y=Primary)
+		| ({Comparison.left=current} op='in' '(' list+=Atomic (',' list+=Atomic)* ')')
+	)*
+;
+
+Primary returns Expression:
+	'(' Expression ')' |
+	{Not} '!' expression=Primary |
+	FQN |
+	FunctionCall |
+	Atomic
+;
+
+TemplatedValue returns Expression:
+	{TemplatedValue} '{' value=ID '}'
+;
+
+FQN returns Expression:
+	head=[Named] '.' tail+=ID ('.' tail+=ID)*
+;
+
+FunctionCall returns Expression:
+	function=ID '(' (arguments+=FunctionArgument (',' arguments+=FunctionArgument)*)? ')'
 ;
 
 FunctionArgument:
-	value=(PathExpression | Literal)
+	{FunctionArgument} ((reference=[Named]) | (fqn=FQN))
 ;
 
-Literal:
-	IntegerLiteral | StringLiteral | BooleanLiteral
-;
-
-IntegerLiteral:
-	value=INT
-;
-
-StringLiteral:
-	value=STRING
-;
-
-BooleanLiteral:
-	value=('true' | 'false')
+Atomic returns Expression:
+	{IntConstant} value=INT |
+	{StringConstant} value=STRING |
+	{BooleanConstant} value=('true'|'false') |
+	{NullConstant} value='null' |
+	{TemplatedValue} '{' value=ID '}' |
+	{Reference} value=[Named]
 ;

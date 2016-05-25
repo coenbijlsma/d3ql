@@ -4,7 +4,7 @@
 package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
-import nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral;
+import nl.coenbijlsma.languages.d3ql.d3ql.StringConstant;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Integer Literal</b></em>'.
+ * An implementation of the model object '<em><b>String Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.IntegerLiteralImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.StringConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
+public class StringConstantImpl extends ExpressionImpl implements StringConstant
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -35,7 +35,7 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,14 +45,14 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IntegerLiteralImpl()
+  protected StringConstantImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
   @Override
   protected EClass eStaticClass()
   {
-    return D3qlPackage.Literals.INTEGER_LITERAL;
+    return D3qlPackage.Literals.STRING_CONSTANT;
   }
 
   /**
@@ -73,7 +73,7 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public String getValue()
   {
     return value;
   }
@@ -83,12 +83,12 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public void setValue(String newValue)
   {
-    int oldValue = value;
+    String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.INTEGER_LITERAL__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.STRING_CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,7 +101,7 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.INTEGER_LITERAL__VALUE:
+      case D3qlPackage.STRING_CONSTANT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,8 +117,8 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.INTEGER_LITERAL__VALUE:
-        setValue((Integer)newValue);
+      case D3qlPackage.STRING_CONSTANT__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,7 +134,7 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.INTEGER_LITERAL__VALUE:
+      case D3qlPackage.STRING_CONSTANT__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -151,8 +151,8 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.INTEGER_LITERAL__VALUE:
-        return value != VALUE_EDEFAULT;
+      case D3qlPackage.STRING_CONSTANT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -174,4 +174,4 @@ public class IntegerLiteralImpl extends LiteralImpl implements IntegerLiteral
     return result.toString();
   }
 
-} //IntegerLiteralImpl
+} //StringConstantImpl

@@ -7,11 +7,23 @@
   <genPackages prefix="D3ql" basePackage="nl.coenbijlsma.languages.d3ql" disposableProviderFactory="true"
       fileExtensions="d3ql" ecorePackage="D3ql.ecore#/">
     <genClasses ecoreClass="D3ql.ecore#//Query">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Query/fromStatement"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Query/selectStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Query/from"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Query/select"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Query/where"/>
     </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//FromStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//FromStatement/aggregates"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//SelectStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//SelectStatement/arterisk"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//SelectStatement/selections"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//SelectionItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//SelectionItem/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//SelectionItem/alias"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//WhereStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//WhereStatement/expressions"/>
     </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//Named">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//Named/name"/>
@@ -20,36 +32,55 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//AggregateRoot/alias"/>
     </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//Alias"/>
-    <genClasses ecoreClass="D3ql.ecore#//SelectStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//SelectStatement/expressions"/>
-    </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//SelectExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//SelectExpression/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//SelectExpression/alias"/>
-    </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//PathExpression">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference D3ql.ecore#//PathExpression/head"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//PathExpression/tail"/>
-    </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//PathElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//PathElement/name"/>
-    </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//FunctionCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//FunctionCall/function"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//FunctionCall/arguments"/>
+    <genClasses ecoreClass="D3ql.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Expression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Expression/alias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference D3ql.ecore#//Expression/head"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//Expression/tail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//Expression/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Expression/arguments"/>
     </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//FunctionArgument">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//FunctionArgument/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference D3ql.ecore#//FunctionArgument/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//FunctionArgument/fqn"/>
     </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//Literal"/>
-    <genClasses ecoreClass="D3ql.ecore#//IntegerLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//IntegerLiteral/value"/>
+    <genClasses ecoreClass="D3ql.ecore#//Or">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Or/right"/>
     </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//StringLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//StringLiteral/value"/>
+    <genClasses ecoreClass="D3ql.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//And/right"/>
     </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//BooleanLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//BooleanLiteral/value"/>
+    <genClasses ecoreClass="D3ql.ecore#//Equality">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//Equality/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Equality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//Comparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//Comparison/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Comparison/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Comparison/x"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Comparison/y"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Comparison/list"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Not/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//TemplatedValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//TemplatedValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//IntConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//IntConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//BooleanConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//BooleanConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//NullConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//NullConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference D3ql.ecore#//Reference/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -5,13 +5,13 @@ package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.Alias;
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
-import nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression;
+import nl.coenbijlsma.languages.d3ql.d3ql.Expression;
+import nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -19,19 +19,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Select Expression</b></em>'.
+ * An implementation of the model object '<em><b>Selection Item</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectExpressionImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectExpressionImpl#getAlias <em>Alias</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectionItemImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.SelectionItemImpl#getAlias <em>Alias</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SelectExpressionImpl extends MinimalEObjectImpl.Container implements SelectExpression
+public class SelectionItemImpl extends MinimalEObjectImpl.Container implements SelectionItem
 {
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -41,7 +41,7 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected EObject expression;
+  protected Expression expression;
 
   /**
    * The cached value of the '{@link #getAlias() <em>Alias</em>}' containment reference.
@@ -58,7 +58,7 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SelectExpressionImpl()
+  protected SelectionItemImpl()
   {
     super();
   }
@@ -71,7 +71,7 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return D3qlPackage.Literals.SELECT_EXPRESSION;
+    return D3qlPackage.Literals.SELECTION_ITEM;
   }
 
   /**
@@ -79,7 +79,7 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getExpression()
+  public Expression getExpression()
   {
     return expression;
   }
@@ -89,13 +89,13 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(EObject newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    EObject oldExpression = expression;
+    Expression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECT_EXPRESSION__EXPRESSION, oldExpression, newExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECTION_ITEM__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,20 +106,20 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(EObject newExpression)
+  public void setExpression(Expression newExpression)
   {
     if (newExpression != expression)
     {
       NotificationChain msgs = null;
       if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECT_EXPRESSION__EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECTION_ITEM__EXPRESSION, null, msgs);
       if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECT_EXPRESSION__EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECTION_ITEM__EXPRESSION, null, msgs);
       msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECT_EXPRESSION__EXPRESSION, newExpression, newExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECTION_ITEM__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -143,7 +143,7 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
     alias = newAlias;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECT_EXPRESSION__ALIAS, oldAlias, newAlias);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECTION_ITEM__ALIAS, oldAlias, newAlias);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -160,14 +160,14 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
     {
       NotificationChain msgs = null;
       if (alias != null)
-        msgs = ((InternalEObject)alias).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECT_EXPRESSION__ALIAS, null, msgs);
+        msgs = ((InternalEObject)alias).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECTION_ITEM__ALIAS, null, msgs);
       if (newAlias != null)
-        msgs = ((InternalEObject)newAlias).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECT_EXPRESSION__ALIAS, null, msgs);
+        msgs = ((InternalEObject)newAlias).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.SELECTION_ITEM__ALIAS, null, msgs);
       msgs = basicSetAlias(newAlias, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECT_EXPRESSION__ALIAS, newAlias, newAlias));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.SELECTION_ITEM__ALIAS, newAlias, newAlias));
   }
 
   /**
@@ -180,9 +180,9 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_EXPRESSION__EXPRESSION:
+      case D3qlPackage.SELECTION_ITEM__EXPRESSION:
         return basicSetExpression(null, msgs);
-      case D3qlPackage.SELECT_EXPRESSION__ALIAS:
+      case D3qlPackage.SELECTION_ITEM__ALIAS:
         return basicSetAlias(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -198,9 +198,9 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_EXPRESSION__EXPRESSION:
+      case D3qlPackage.SELECTION_ITEM__EXPRESSION:
         return getExpression();
-      case D3qlPackage.SELECT_EXPRESSION__ALIAS:
+      case D3qlPackage.SELECTION_ITEM__ALIAS:
         return getAlias();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -216,10 +216,10 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_EXPRESSION__EXPRESSION:
-        setExpression((EObject)newValue);
+      case D3qlPackage.SELECTION_ITEM__EXPRESSION:
+        setExpression((Expression)newValue);
         return;
-      case D3qlPackage.SELECT_EXPRESSION__ALIAS:
+      case D3qlPackage.SELECTION_ITEM__ALIAS:
         setAlias((Alias)newValue);
         return;
     }
@@ -236,10 +236,10 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_EXPRESSION__EXPRESSION:
-        setExpression((EObject)null);
+      case D3qlPackage.SELECTION_ITEM__EXPRESSION:
+        setExpression((Expression)null);
         return;
-      case D3qlPackage.SELECT_EXPRESSION__ALIAS:
+      case D3qlPackage.SELECTION_ITEM__ALIAS:
         setAlias((Alias)null);
         return;
     }
@@ -256,12 +256,12 @@ public class SelectExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.SELECT_EXPRESSION__EXPRESSION:
+      case D3qlPackage.SELECTION_ITEM__EXPRESSION:
         return expression != null;
-      case D3qlPackage.SELECT_EXPRESSION__ALIAS:
+      case D3qlPackage.SELECTION_ITEM__ALIAS:
         return alias != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //SelectExpressionImpl
+} //SelectionItemImpl

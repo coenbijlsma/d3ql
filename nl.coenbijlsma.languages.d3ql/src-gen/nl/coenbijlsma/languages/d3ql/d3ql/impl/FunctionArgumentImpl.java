@@ -4,13 +4,14 @@
 package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
+import nl.coenbijlsma.languages.d3ql.d3ql.Expression;
 import nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument;
+import nl.coenbijlsma.languages.d3ql.d3ql.Named;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -24,7 +25,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.FunctionArgumentImpl#getFqn <em>Fqn</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +34,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implements FunctionArgument
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getReference()
    * @generated
    * @ordered
    */
-  protected EObject value;
+  protected Named reference;
+
+  /**
+   * The cached value of the '{@link #getFqn() <em>Fqn</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFqn()
+   * @generated
+   * @ordered
+   */
+  protected Expression fqn;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +79,19 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getValue()
+  public Named getReference()
   {
-    return value;
+    if (reference != null && reference.eIsProxy())
+    {
+      InternalEObject oldReference = (InternalEObject)reference;
+      reference = (Named)eResolveProxy(oldReference);
+      if (reference != oldReference)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, D3qlPackage.FUNCTION_ARGUMENT__REFERENCE, oldReference, reference));
+      }
+    }
+    return reference;
   }
 
   /**
@@ -77,13 +99,46 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(EObject newValue, NotificationChain msgs)
+  public Named basicGetReference()
   {
-    EObject oldValue = value;
-    value = newValue;
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReference(Named newReference)
+  {
+    Named oldReference = reference;
+    reference = newReference;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.FUNCTION_ARGUMENT__REFERENCE, oldReference, reference));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getFqn()
+  {
+    return fqn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFqn(Expression newFqn, NotificationChain msgs)
+  {
+    Expression oldFqn = fqn;
+    fqn = newFqn;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.FUNCTION_ARGUMENT__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.FUNCTION_ARGUMENT__FQN, oldFqn, newFqn);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +149,20 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(EObject newValue)
+  public void setFqn(Expression newFqn)
   {
-    if (newValue != value)
+    if (newFqn != fqn)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.FUNCTION_ARGUMENT__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.FUNCTION_ARGUMENT__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (fqn != null)
+        msgs = ((InternalEObject)fqn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.FUNCTION_ARGUMENT__FQN, null, msgs);
+      if (newFqn != null)
+        msgs = ((InternalEObject)newFqn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.FUNCTION_ARGUMENT__FQN, null, msgs);
+      msgs = basicSetFqn(newFqn, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.FUNCTION_ARGUMENT__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.FUNCTION_ARGUMENT__FQN, newFqn, newFqn));
   }
 
   /**
@@ -120,8 +175,8 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.FUNCTION_ARGUMENT__VALUE:
-        return basicSetValue(null, msgs);
+      case D3qlPackage.FUNCTION_ARGUMENT__FQN:
+        return basicSetFqn(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +191,11 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.FUNCTION_ARGUMENT__VALUE:
-        return getValue();
+      case D3qlPackage.FUNCTION_ARGUMENT__REFERENCE:
+        if (resolve) return getReference();
+        return basicGetReference();
+      case D3qlPackage.FUNCTION_ARGUMENT__FQN:
+        return getFqn();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +210,11 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.FUNCTION_ARGUMENT__VALUE:
-        setValue((EObject)newValue);
+      case D3qlPackage.FUNCTION_ARGUMENT__REFERENCE:
+        setReference((Named)newValue);
+        return;
+      case D3qlPackage.FUNCTION_ARGUMENT__FQN:
+        setFqn((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +230,11 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.FUNCTION_ARGUMENT__VALUE:
-        setValue((EObject)null);
+      case D3qlPackage.FUNCTION_ARGUMENT__REFERENCE:
+        setReference((Named)null);
+        return;
+      case D3qlPackage.FUNCTION_ARGUMENT__FQN:
+        setFqn((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,8 +250,10 @@ public class FunctionArgumentImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case D3qlPackage.FUNCTION_ARGUMENT__VALUE:
-        return value != null;
+      case D3qlPackage.FUNCTION_ARGUMENT__REFERENCE:
+        return reference != null;
+      case D3qlPackage.FUNCTION_ARGUMENT__FQN:
+        return fqn != null;
     }
     return super.eIsSet(featureID);
   }

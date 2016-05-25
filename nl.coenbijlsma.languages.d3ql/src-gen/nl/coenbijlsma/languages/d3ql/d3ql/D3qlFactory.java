@@ -42,6 +42,33 @@ public interface D3qlFactory extends EFactory
   FromStatement createFromStatement();
 
   /**
+   * Returns a new object of class '<em>Select Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Select Statement</em>'.
+   * @generated
+   */
+  SelectStatement createSelectStatement();
+
+  /**
+   * Returns a new object of class '<em>Selection Item</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selection Item</em>'.
+   * @generated
+   */
+  SelectionItem createSelectionItem();
+
+  /**
+   * Returns a new object of class '<em>Where Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Where Statement</em>'.
+   * @generated
+   */
+  WhereStatement createWhereStatement();
+
+  /**
    * Returns a new object of class '<em>Named</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,49 +96,13 @@ public interface D3qlFactory extends EFactory
   Alias createAlias();
 
   /**
-   * Returns a new object of class '<em>Select Statement</em>'.
+   * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Select Statement</em>'.
+   * @return a new object of class '<em>Expression</em>'.
    * @generated
    */
-  SelectStatement createSelectStatement();
-
-  /**
-   * Returns a new object of class '<em>Select Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Select Expression</em>'.
-   * @generated
-   */
-  SelectExpression createSelectExpression();
-
-  /**
-   * Returns a new object of class '<em>Path Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Path Expression</em>'.
-   * @generated
-   */
-  PathExpression createPathExpression();
-
-  /**
-   * Returns a new object of class '<em>Path Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Path Element</em>'.
-   * @generated
-   */
-  PathElement createPathElement();
-
-  /**
-   * Returns a new object of class '<em>Function Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Call</em>'.
-   * @generated
-   */
-  FunctionCall createFunctionCall();
+  Expression createExpression();
 
   /**
    * Returns a new object of class '<em>Function Argument</em>'.
@@ -123,40 +114,103 @@ public interface D3qlFactory extends EFactory
   FunctionArgument createFunctionArgument();
 
   /**
-   * Returns a new object of class '<em>Literal</em>'.
+   * Returns a new object of class '<em>Or</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Literal</em>'.
+   * @return a new object of class '<em>Or</em>'.
    * @generated
    */
-  Literal createLiteral();
+  Or createOr();
 
   /**
-   * Returns a new object of class '<em>Integer Literal</em>'.
+   * Returns a new object of class '<em>And</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Literal</em>'.
+   * @return a new object of class '<em>And</em>'.
    * @generated
    */
-  IntegerLiteral createIntegerLiteral();
+  And createAnd();
 
   /**
-   * Returns a new object of class '<em>String Literal</em>'.
+   * Returns a new object of class '<em>Equality</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Literal</em>'.
+   * @return a new object of class '<em>Equality</em>'.
    * @generated
    */
-  StringLiteral createStringLiteral();
+  Equality createEquality();
 
   /**
-   * Returns a new object of class '<em>Boolean Literal</em>'.
+   * Returns a new object of class '<em>Comparison</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Literal</em>'.
+   * @return a new object of class '<em>Comparison</em>'.
    * @generated
    */
-  BooleanLiteral createBooleanLiteral();
+  Comparison createComparison();
+
+  /**
+   * Returns a new object of class '<em>Not</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not</em>'.
+   * @generated
+   */
+  Not createNot();
+
+  /**
+   * Returns a new object of class '<em>Templated Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Templated Value</em>'.
+   * @generated
+   */
+  TemplatedValue createTemplatedValue();
+
+  /**
+   * Returns a new object of class '<em>Int Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Constant</em>'.
+   * @generated
+   */
+  IntConstant createIntConstant();
+
+  /**
+   * Returns a new object of class '<em>String Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Constant</em>'.
+   * @generated
+   */
+  StringConstant createStringConstant();
+
+  /**
+   * Returns a new object of class '<em>Boolean Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Constant</em>'.
+   * @generated
+   */
+  BooleanConstant createBooleanConstant();
+
+  /**
+   * Returns a new object of class '<em>Null Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null Constant</em>'.
+   * @generated
+   */
+  NullConstant createNullConstant();
+
+  /**
+   * Returns a new object of class '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference</em>'.
+   * @generated
+   */
+  Reference createReference();
 
   /**
    * Returns the package supported by this factory.

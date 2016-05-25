@@ -7,6 +7,7 @@ import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
 import nl.coenbijlsma.languages.d3ql.d3ql.FromStatement;
 import nl.coenbijlsma.languages.d3ql.d3ql.Query;
 import nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement;
+import nl.coenbijlsma.languages.d3ql.d3ql.WhereStatement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,8 +26,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.QueryImpl#getFromStatement <em>From Statement</em>}</li>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.QueryImpl#getSelectStatement <em>Select Statement</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.QueryImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.QueryImpl#getSelect <em>Select</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.QueryImpl#getWhere <em>Where</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +36,34 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class QueryImpl extends MinimalEObjectImpl.Container implements Query
 {
   /**
-   * The cached value of the '{@link #getFromStatement() <em>From Statement</em>}' containment reference.
+   * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFromStatement()
+   * @see #getFrom()
    * @generated
    * @ordered
    */
-  protected FromStatement fromStatement;
+  protected FromStatement from;
 
   /**
-   * The cached value of the '{@link #getSelectStatement() <em>Select Statement</em>}' containment reference.
+   * The cached value of the '{@link #getSelect() <em>Select</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSelectStatement()
+   * @see #getSelect()
    * @generated
    * @ordered
    */
-  protected SelectStatement selectStatement;
+  protected SelectStatement select;
+
+  /**
+   * The cached value of the '{@link #getWhere() <em>Where</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhere()
+   * @generated
+   * @ordered
+   */
+  protected WhereStatement where;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,9 +91,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public FromStatement getFromStatement()
+  public FromStatement getFrom()
   {
-    return fromStatement;
+    return from;
   }
 
   /**
@@ -89,13 +101,13 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFromStatement(FromStatement newFromStatement, NotificationChain msgs)
+  public NotificationChain basicSetFrom(FromStatement newFrom, NotificationChain msgs)
   {
-    FromStatement oldFromStatement = fromStatement;
-    fromStatement = newFromStatement;
+    FromStatement oldFrom = from;
+    from = newFrom;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__FROM_STATEMENT, oldFromStatement, newFromStatement);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__FROM, oldFrom, newFrom);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,20 +118,20 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFromStatement(FromStatement newFromStatement)
+  public void setFrom(FromStatement newFrom)
   {
-    if (newFromStatement != fromStatement)
+    if (newFrom != from)
     {
       NotificationChain msgs = null;
-      if (fromStatement != null)
-        msgs = ((InternalEObject)fromStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__FROM_STATEMENT, null, msgs);
-      if (newFromStatement != null)
-        msgs = ((InternalEObject)newFromStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__FROM_STATEMENT, null, msgs);
-      msgs = basicSetFromStatement(newFromStatement, msgs);
+      if (from != null)
+        msgs = ((InternalEObject)from).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__FROM, null, msgs);
+      if (newFrom != null)
+        msgs = ((InternalEObject)newFrom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__FROM, null, msgs);
+      msgs = basicSetFrom(newFrom, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__FROM_STATEMENT, newFromStatement, newFromStatement));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__FROM, newFrom, newFrom));
   }
 
   /**
@@ -127,9 +139,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public SelectStatement getSelectStatement()
+  public SelectStatement getSelect()
   {
-    return selectStatement;
+    return select;
   }
 
   /**
@@ -137,13 +149,13 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSelectStatement(SelectStatement newSelectStatement, NotificationChain msgs)
+  public NotificationChain basicSetSelect(SelectStatement newSelect, NotificationChain msgs)
   {
-    SelectStatement oldSelectStatement = selectStatement;
-    selectStatement = newSelectStatement;
+    SelectStatement oldSelect = select;
+    select = newSelect;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__SELECT_STATEMENT, oldSelectStatement, newSelectStatement);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__SELECT, oldSelect, newSelect);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -154,20 +166,68 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSelectStatement(SelectStatement newSelectStatement)
+  public void setSelect(SelectStatement newSelect)
   {
-    if (newSelectStatement != selectStatement)
+    if (newSelect != select)
     {
       NotificationChain msgs = null;
-      if (selectStatement != null)
-        msgs = ((InternalEObject)selectStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__SELECT_STATEMENT, null, msgs);
-      if (newSelectStatement != null)
-        msgs = ((InternalEObject)newSelectStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__SELECT_STATEMENT, null, msgs);
-      msgs = basicSetSelectStatement(newSelectStatement, msgs);
+      if (select != null)
+        msgs = ((InternalEObject)select).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__SELECT, null, msgs);
+      if (newSelect != null)
+        msgs = ((InternalEObject)newSelect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__SELECT, null, msgs);
+      msgs = basicSetSelect(newSelect, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__SELECT_STATEMENT, newSelectStatement, newSelectStatement));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__SELECT, newSelect, newSelect));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WhereStatement getWhere()
+  {
+    return where;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetWhere(WhereStatement newWhere, NotificationChain msgs)
+  {
+    WhereStatement oldWhere = where;
+    where = newWhere;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__WHERE, oldWhere, newWhere);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWhere(WhereStatement newWhere)
+  {
+    if (newWhere != where)
+    {
+      NotificationChain msgs = null;
+      if (where != null)
+        msgs = ((InternalEObject)where).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__WHERE, null, msgs);
+      if (newWhere != null)
+        msgs = ((InternalEObject)newWhere).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - D3qlPackage.QUERY__WHERE, null, msgs);
+      msgs = basicSetWhere(newWhere, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.QUERY__WHERE, newWhere, newWhere));
   }
 
   /**
@@ -180,10 +240,12 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
   {
     switch (featureID)
     {
-      case D3qlPackage.QUERY__FROM_STATEMENT:
-        return basicSetFromStatement(null, msgs);
-      case D3qlPackage.QUERY__SELECT_STATEMENT:
-        return basicSetSelectStatement(null, msgs);
+      case D3qlPackage.QUERY__FROM:
+        return basicSetFrom(null, msgs);
+      case D3qlPackage.QUERY__SELECT:
+        return basicSetSelect(null, msgs);
+      case D3qlPackage.QUERY__WHERE:
+        return basicSetWhere(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -198,10 +260,12 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
   {
     switch (featureID)
     {
-      case D3qlPackage.QUERY__FROM_STATEMENT:
-        return getFromStatement();
-      case D3qlPackage.QUERY__SELECT_STATEMENT:
-        return getSelectStatement();
+      case D3qlPackage.QUERY__FROM:
+        return getFrom();
+      case D3qlPackage.QUERY__SELECT:
+        return getSelect();
+      case D3qlPackage.QUERY__WHERE:
+        return getWhere();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,11 +280,14 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
   {
     switch (featureID)
     {
-      case D3qlPackage.QUERY__FROM_STATEMENT:
-        setFromStatement((FromStatement)newValue);
+      case D3qlPackage.QUERY__FROM:
+        setFrom((FromStatement)newValue);
         return;
-      case D3qlPackage.QUERY__SELECT_STATEMENT:
-        setSelectStatement((SelectStatement)newValue);
+      case D3qlPackage.QUERY__SELECT:
+        setSelect((SelectStatement)newValue);
+        return;
+      case D3qlPackage.QUERY__WHERE:
+        setWhere((WhereStatement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,11 +303,14 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
   {
     switch (featureID)
     {
-      case D3qlPackage.QUERY__FROM_STATEMENT:
-        setFromStatement((FromStatement)null);
+      case D3qlPackage.QUERY__FROM:
+        setFrom((FromStatement)null);
         return;
-      case D3qlPackage.QUERY__SELECT_STATEMENT:
-        setSelectStatement((SelectStatement)null);
+      case D3qlPackage.QUERY__SELECT:
+        setSelect((SelectStatement)null);
+        return;
+      case D3qlPackage.QUERY__WHERE:
+        setWhere((WhereStatement)null);
         return;
     }
     super.eUnset(featureID);
@@ -256,10 +326,12 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query
   {
     switch (featureID)
     {
-      case D3qlPackage.QUERY__FROM_STATEMENT:
-        return fromStatement != null;
-      case D3qlPackage.QUERY__SELECT_STATEMENT:
-        return selectStatement != null;
+      case D3qlPackage.QUERY__FROM:
+        return from != null;
+      case D3qlPackage.QUERY__SELECT:
+        return select != null;
+      case D3qlPackage.QUERY__WHERE:
+        return where != null;
     }
     return super.eIsSet(featureID);
   }

@@ -7,18 +7,25 @@ import com.google.inject.Inject;
 import java.util.Set;
 import nl.coenbijlsma.languages.d3ql.d3ql.AggregateRoot;
 import nl.coenbijlsma.languages.d3ql.d3ql.Alias;
-import nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral;
+import nl.coenbijlsma.languages.d3ql.d3ql.And;
+import nl.coenbijlsma.languages.d3ql.d3ql.BooleanConstant;
+import nl.coenbijlsma.languages.d3ql.d3ql.Comparison;
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
+import nl.coenbijlsma.languages.d3ql.d3ql.Equality;
+import nl.coenbijlsma.languages.d3ql.d3ql.Expression;
 import nl.coenbijlsma.languages.d3ql.d3ql.FromStatement;
 import nl.coenbijlsma.languages.d3ql.d3ql.FunctionArgument;
-import nl.coenbijlsma.languages.d3ql.d3ql.FunctionCall;
-import nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral;
-import nl.coenbijlsma.languages.d3ql.d3ql.PathElement;
-import nl.coenbijlsma.languages.d3ql.d3ql.PathExpression;
+import nl.coenbijlsma.languages.d3ql.d3ql.IntConstant;
+import nl.coenbijlsma.languages.d3ql.d3ql.Not;
+import nl.coenbijlsma.languages.d3ql.d3ql.NullConstant;
+import nl.coenbijlsma.languages.d3ql.d3ql.Or;
 import nl.coenbijlsma.languages.d3ql.d3ql.Query;
-import nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression;
+import nl.coenbijlsma.languages.d3ql.d3ql.Reference;
 import nl.coenbijlsma.languages.d3ql.d3ql.SelectStatement;
-import nl.coenbijlsma.languages.d3ql.d3ql.StringLiteral;
+import nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem;
+import nl.coenbijlsma.languages.d3ql.d3ql.StringConstant;
+import nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue;
+import nl.coenbijlsma.languages.d3ql.d3ql.WhereStatement;
 import nl.coenbijlsma.languages.d3ql.services.D3qlGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -50,38 +57,102 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case D3qlPackage.ALIAS:
 				sequence_Alias(context, (Alias) semanticObject); 
 				return; 
-			case D3qlPackage.BOOLEAN_LITERAL:
-				sequence_BooleanLiteral(context, (BooleanLiteral) semanticObject); 
+			case D3qlPackage.AND:
+				sequence_And(context, (And) semanticObject); 
 				return; 
+			case D3qlPackage.BOOLEAN_CONSTANT:
+				sequence_Atomic(context, (BooleanConstant) semanticObject); 
+				return; 
+			case D3qlPackage.COMPARISON:
+				sequence_Comparison(context, (Comparison) semanticObject); 
+				return; 
+			case D3qlPackage.EQUALITY:
+				sequence_Equality(context, (Equality) semanticObject); 
+				return; 
+			case D3qlPackage.EXPRESSION:
+				if (rule == grammarAccess.getExpressionRule()
+						|| action == grammarAccess.getExpressionAccess().getExpressionLeftAction_1_0()
+						|| rule == grammarAccess.getOrRule()
+						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
+						|| rule == grammarAccess.getAndRule()
+						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
+						|| rule == grammarAccess.getEqualityRule()
+						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
+						|| rule == grammarAccess.getComparisonRule()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0_0()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_1_0()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_2_0()
+						|| rule == grammarAccess.getPrimaryRule()) {
+					sequence_Expression_FQN_FunctionCall(context, (Expression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getFQNRule()) {
+					sequence_FQN(context, (Expression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getFunctionCallRule()) {
+					sequence_FunctionCall(context, (Expression) semanticObject); 
+					return; 
+				}
+				else break;
 			case D3qlPackage.FROM_STATEMENT:
 				sequence_FromStatement(context, (FromStatement) semanticObject); 
 				return; 
 			case D3qlPackage.FUNCTION_ARGUMENT:
 				sequence_FunctionArgument(context, (FunctionArgument) semanticObject); 
 				return; 
-			case D3qlPackage.FUNCTION_CALL:
-				sequence_FunctionCall(context, (FunctionCall) semanticObject); 
+			case D3qlPackage.INT_CONSTANT:
+				sequence_Atomic(context, (IntConstant) semanticObject); 
 				return; 
-			case D3qlPackage.INTEGER_LITERAL:
-				sequence_IntegerLiteral(context, (IntegerLiteral) semanticObject); 
+			case D3qlPackage.NOT:
+				sequence_Primary(context, (Not) semanticObject); 
 				return; 
-			case D3qlPackage.PATH_ELEMENT:
-				sequence_PathElement(context, (PathElement) semanticObject); 
+			case D3qlPackage.NULL_CONSTANT:
+				sequence_Atomic(context, (NullConstant) semanticObject); 
 				return; 
-			case D3qlPackage.PATH_EXPRESSION:
-				sequence_PathExpression(context, (PathExpression) semanticObject); 
+			case D3qlPackage.OR:
+				sequence_Or(context, (Or) semanticObject); 
 				return; 
 			case D3qlPackage.QUERY:
 				sequence_Query(context, (Query) semanticObject); 
 				return; 
-			case D3qlPackage.SELECT_EXPRESSION:
-				sequence_SelectExpression(context, (SelectExpression) semanticObject); 
+			case D3qlPackage.REFERENCE:
+				sequence_Atomic(context, (Reference) semanticObject); 
 				return; 
 			case D3qlPackage.SELECT_STATEMENT:
 				sequence_SelectStatement(context, (SelectStatement) semanticObject); 
 				return; 
-			case D3qlPackage.STRING_LITERAL:
-				sequence_StringLiteral(context, (StringLiteral) semanticObject); 
+			case D3qlPackage.SELECTION_ITEM:
+				sequence_SelectionItem(context, (SelectionItem) semanticObject); 
+				return; 
+			case D3qlPackage.STRING_CONSTANT:
+				sequence_Atomic(context, (StringConstant) semanticObject); 
+				return; 
+			case D3qlPackage.TEMPLATED_VALUE:
+				if (rule == grammarAccess.getExpressionRule()
+						|| action == grammarAccess.getExpressionAccess().getExpressionLeftAction_1_0()
+						|| rule == grammarAccess.getOrRule()
+						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
+						|| rule == grammarAccess.getAndRule()
+						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
+						|| rule == grammarAccess.getEqualityRule()
+						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
+						|| rule == grammarAccess.getComparisonRule()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0_0()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_1_0()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_2_0()
+						|| rule == grammarAccess.getPrimaryRule()
+						|| rule == grammarAccess.getAtomicRule()) {
+					sequence_Atomic(context, (TemplatedValue) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTemplatedValueRule()) {
+					sequence_TemplatedValue(context, (TemplatedValue) semanticObject); 
+					return; 
+				}
+				else break;
+			case D3qlPackage.WHERE_STATEMENT:
+				sequence_WhereStatement(context, (WhereStatement) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -122,13 +193,305 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Literal returns BooleanLiteral
-	 *     BooleanLiteral returns BooleanLiteral
+	 *     Expression returns And
+	 *     Expression.Expression_1_0 returns And
+	 *     Or returns And
+	 *     Or.Or_1_0 returns And
+	 *     And returns And
+	 *     And.And_1_0 returns And
+	 *     Equality returns And
+	 *     Equality.Equality_1_0 returns And
+	 *     Comparison returns And
+	 *     Comparison.Comparison_1_0_0 returns And
+	 *     Comparison.Comparison_1_1_0 returns And
+	 *     Comparison.Comparison_1_2_0 returns And
+	 *     Primary returns And
+	 *
+	 * Constraint:
+	 *     (left=And_And_1_0 right=Equality)
+	 */
+	protected void sequence_And(ISerializationContext context, And semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.AND__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.AND__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAndAccess().getRightEqualityParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns BooleanConstant
+	 *     Expression.Expression_1_0 returns BooleanConstant
+	 *     Or returns BooleanConstant
+	 *     Or.Or_1_0 returns BooleanConstant
+	 *     And returns BooleanConstant
+	 *     And.And_1_0 returns BooleanConstant
+	 *     Equality returns BooleanConstant
+	 *     Equality.Equality_1_0 returns BooleanConstant
+	 *     Comparison returns BooleanConstant
+	 *     Comparison.Comparison_1_0_0 returns BooleanConstant
+	 *     Comparison.Comparison_1_1_0 returns BooleanConstant
+	 *     Comparison.Comparison_1_2_0 returns BooleanConstant
+	 *     Primary returns BooleanConstant
+	 *     Atomic returns BooleanConstant
 	 *
 	 * Constraint:
 	 *     (value='true' | value='false')
 	 */
-	protected void sequence_BooleanLiteral(ISerializationContext context, BooleanLiteral semanticObject) {
+	protected void sequence_Atomic(ISerializationContext context, BooleanConstant semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns IntConstant
+	 *     Expression.Expression_1_0 returns IntConstant
+	 *     Or returns IntConstant
+	 *     Or.Or_1_0 returns IntConstant
+	 *     And returns IntConstant
+	 *     And.And_1_0 returns IntConstant
+	 *     Equality returns IntConstant
+	 *     Equality.Equality_1_0 returns IntConstant
+	 *     Comparison returns IntConstant
+	 *     Comparison.Comparison_1_0_0 returns IntConstant
+	 *     Comparison.Comparison_1_1_0 returns IntConstant
+	 *     Comparison.Comparison_1_2_0 returns IntConstant
+	 *     Primary returns IntConstant
+	 *     Atomic returns IntConstant
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_Atomic(ISerializationContext context, IntConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.INT_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.INT_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicAccess().getValueINTTerminalRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns NullConstant
+	 *     Expression.Expression_1_0 returns NullConstant
+	 *     Or returns NullConstant
+	 *     Or.Or_1_0 returns NullConstant
+	 *     And returns NullConstant
+	 *     And.And_1_0 returns NullConstant
+	 *     Equality returns NullConstant
+	 *     Equality.Equality_1_0 returns NullConstant
+	 *     Comparison returns NullConstant
+	 *     Comparison.Comparison_1_0_0 returns NullConstant
+	 *     Comparison.Comparison_1_1_0 returns NullConstant
+	 *     Comparison.Comparison_1_2_0 returns NullConstant
+	 *     Primary returns NullConstant
+	 *     Atomic returns NullConstant
+	 *
+	 * Constraint:
+	 *     value='null'
+	 */
+	protected void sequence_Atomic(ISerializationContext context, NullConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.NULL_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.NULL_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicAccess().getValueNullKeyword_3_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Reference
+	 *     Expression.Expression_1_0 returns Reference
+	 *     Or returns Reference
+	 *     Or.Or_1_0 returns Reference
+	 *     And returns Reference
+	 *     And.And_1_0 returns Reference
+	 *     Equality returns Reference
+	 *     Equality.Equality_1_0 returns Reference
+	 *     Comparison returns Reference
+	 *     Comparison.Comparison_1_0_0 returns Reference
+	 *     Comparison.Comparison_1_1_0 returns Reference
+	 *     Comparison.Comparison_1_2_0 returns Reference
+	 *     Primary returns Reference
+	 *     Atomic returns Reference
+	 *
+	 * Constraint:
+	 *     value=[Named|ID]
+	 */
+	protected void sequence_Atomic(ISerializationContext context, Reference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.REFERENCE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.REFERENCE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicAccess().getValueNamedIDTerminalRuleCall_5_1_0_1(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns StringConstant
+	 *     Expression.Expression_1_0 returns StringConstant
+	 *     Or returns StringConstant
+	 *     Or.Or_1_0 returns StringConstant
+	 *     And returns StringConstant
+	 *     And.And_1_0 returns StringConstant
+	 *     Equality returns StringConstant
+	 *     Equality.Equality_1_0 returns StringConstant
+	 *     Comparison returns StringConstant
+	 *     Comparison.Comparison_1_0_0 returns StringConstant
+	 *     Comparison.Comparison_1_1_0 returns StringConstant
+	 *     Comparison.Comparison_1_2_0 returns StringConstant
+	 *     Primary returns StringConstant
+	 *     Atomic returns StringConstant
+	 *
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_Atomic(ISerializationContext context, StringConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.STRING_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.STRING_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicAccess().getValueSTRINGTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns TemplatedValue
+	 *     Expression.Expression_1_0 returns TemplatedValue
+	 *     Or returns TemplatedValue
+	 *     Or.Or_1_0 returns TemplatedValue
+	 *     And returns TemplatedValue
+	 *     And.And_1_0 returns TemplatedValue
+	 *     Equality returns TemplatedValue
+	 *     Equality.Equality_1_0 returns TemplatedValue
+	 *     Comparison returns TemplatedValue
+	 *     Comparison.Comparison_1_0_0 returns TemplatedValue
+	 *     Comparison.Comparison_1_1_0 returns TemplatedValue
+	 *     Comparison.Comparison_1_2_0 returns TemplatedValue
+	 *     Primary returns TemplatedValue
+	 *     Atomic returns TemplatedValue
+	 *
+	 * Constraint:
+	 *     value=ID
+	 */
+	protected void sequence_Atomic(ISerializationContext context, TemplatedValue semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.TEMPLATED_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.TEMPLATED_VALUE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAtomicAccess().getValueIDTerminalRuleCall_4_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Comparison
+	 *     Expression.Expression_1_0 returns Comparison
+	 *     Or returns Comparison
+	 *     Or.Or_1_0 returns Comparison
+	 *     And returns Comparison
+	 *     And.And_1_0 returns Comparison
+	 *     Equality returns Comparison
+	 *     Equality.Equality_1_0 returns Comparison
+	 *     Comparison returns Comparison
+	 *     Comparison.Comparison_1_0_0 returns Comparison
+	 *     Comparison.Comparison_1_1_0 returns Comparison
+	 *     Comparison.Comparison_1_2_0 returns Comparison
+	 *     Primary returns Comparison
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=Comparison_Comparison_1_0_0 (op='>=' | op='<=' | op='>' | op='<' | op='like') right=Primary) | 
+	 *         (left=Comparison_Comparison_1_1_0 op='between' x=Primary y=Primary) | 
+	 *         (left=Comparison_Comparison_1_2_0 op='in' list+=Atomic list+=Atomic*)
+	 *     )
+	 */
+	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Equality
+	 *     Expression.Expression_1_0 returns Equality
+	 *     Or returns Equality
+	 *     Or.Or_1_0 returns Equality
+	 *     And returns Equality
+	 *     And.And_1_0 returns Equality
+	 *     Equality returns Equality
+	 *     Equality.Equality_1_0 returns Equality
+	 *     Comparison returns Equality
+	 *     Comparison.Comparison_1_0_0 returns Equality
+	 *     Comparison.Comparison_1_1_0 returns Equality
+	 *     Comparison.Comparison_1_2_0 returns Equality
+	 *     Primary returns Equality
+	 *
+	 * Constraint:
+	 *     (left=Equality_Equality_1_0 (op='=' | op='!=') right=Comparison)
+	 */
+	protected void sequence_Equality(ISerializationContext context, Equality semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns Expression
+	 *     Expression.Expression_1_0 returns Expression
+	 *     Or returns Expression
+	 *     Or.Or_1_0 returns Expression
+	 *     And returns Expression
+	 *     And.And_1_0 returns Expression
+	 *     Equality returns Expression
+	 *     Equality.Equality_1_0 returns Expression
+	 *     Comparison returns Expression
+	 *     Comparison.Comparison_1_0_0 returns Expression
+	 *     Comparison.Comparison_1_1_0 returns Expression
+	 *     Comparison.Comparison_1_2_0 returns Expression
+	 *     Primary returns Expression
+	 *
+	 * Constraint:
+	 *     (
+	 *         (left=Expression_Expression_1_0 alias=Alias) | 
+	 *         (head=[Named|ID] tail+=ID tail+=ID*) | 
+	 *         (function=ID (arguments+=FunctionArgument arguments+=FunctionArgument*)?)
+	 *     )
+	 */
+	protected void sequence_Expression_FQN_FunctionCall(ISerializationContext context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FQN returns Expression
+	 *
+	 * Constraint:
+	 *     (head=[Named|ID] tail+=ID tail+=ID*)
+	 */
+	protected void sequence_FQN(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -150,7 +513,7 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FunctionArgument returns FunctionArgument
 	 *
 	 * Constraint:
-	 *     (value=PathExpression | value=Literal)
+	 *     (reference=[Named|ID] | fqn=FQN)
 	 */
 	protected void sequence_FunctionArgument(ISerializationContext context, FunctionArgument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -159,62 +522,76 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     FunctionCall returns FunctionCall
+	 *     FunctionCall returns Expression
 	 *
 	 * Constraint:
-	 *     (function=ID arguments+=FunctionArgument arguments+=FunctionArgument*)
+	 *     (function=ID (arguments+=FunctionArgument arguments+=FunctionArgument*)?)
 	 */
-	protected void sequence_FunctionCall(ISerializationContext context, FunctionCall semanticObject) {
+	protected void sequence_FunctionCall(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Literal returns IntegerLiteral
-	 *     IntegerLiteral returns IntegerLiteral
+	 *     Expression returns Or
+	 *     Expression.Expression_1_0 returns Or
+	 *     Or returns Or
+	 *     Or.Or_1_0 returns Or
+	 *     And returns Or
+	 *     And.And_1_0 returns Or
+	 *     Equality returns Or
+	 *     Equality.Equality_1_0 returns Or
+	 *     Comparison returns Or
+	 *     Comparison.Comparison_1_0_0 returns Or
+	 *     Comparison.Comparison_1_1_0 returns Or
+	 *     Comparison.Comparison_1_2_0 returns Or
+	 *     Primary returns Or
 	 *
 	 * Constraint:
-	 *     value=INT
+	 *     (left=Or_Or_1_0 right=And)
 	 */
-	protected void sequence_IntegerLiteral(ISerializationContext context, IntegerLiteral semanticObject) {
+	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.INTEGER_LITERAL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.INTEGER_LITERAL__VALUE));
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.EXPRESSION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.OR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.OR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     PathElement returns PathElement
+	 *     Expression returns Not
+	 *     Expression.Expression_1_0 returns Not
+	 *     Or returns Not
+	 *     Or.Or_1_0 returns Not
+	 *     And returns Not
+	 *     And.And_1_0 returns Not
+	 *     Equality returns Not
+	 *     Equality.Equality_1_0 returns Not
+	 *     Comparison returns Not
+	 *     Comparison.Comparison_1_0_0 returns Not
+	 *     Comparison.Comparison_1_1_0 returns Not
+	 *     Comparison.Comparison_1_2_0 returns Not
+	 *     Primary returns Not
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     expression=Primary
 	 */
-	protected void sequence_PathElement(ISerializationContext context, PathElement semanticObject) {
+	protected void sequence_Primary(ISerializationContext context, Not semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.PATH_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.PATH_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.NOT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.NOT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPathElementAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpressionPrimaryParserRuleCall_1_2_0(), semanticObject.getExpression());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PathExpression returns PathExpression
-	 *
-	 * Constraint:
-	 *     (head=[Named|ID] (tail+=PathElement* tail+=PathElement)?)
-	 */
-	protected void sequence_PathExpression(ISerializationContext context, PathExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -223,30 +600,9 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Query returns Query
 	 *
 	 * Constraint:
-	 *     (fromStatement=FromStatement selectStatement=SelectStatement)
+	 *     (from=FromStatement select=SelectStatement where=WhereStatement?)
 	 */
 	protected void sequence_Query(ISerializationContext context, Query semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.QUERY__FROM_STATEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.QUERY__FROM_STATEMENT));
-			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.QUERY__SELECT_STATEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.QUERY__SELECT_STATEMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQueryAccess().getFromStatementFromStatementParserRuleCall_0_0(), semanticObject.getFromStatement());
-		feeder.accept(grammarAccess.getQueryAccess().getSelectStatementSelectStatementParserRuleCall_1_0(), semanticObject.getSelectStatement());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SelectExpression returns SelectExpression
-	 *
-	 * Constraint:
-	 *     ((expression=PathExpression | expression=FunctionCall | expression=Literal) alias=Alias?)
-	 */
-	protected void sequence_SelectExpression(ISerializationContext context, SelectExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -256,7 +612,7 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SelectStatement returns SelectStatement
 	 *
 	 * Constraint:
-	 *     (expressions+=SelectExpression expressions+=SelectExpression*)
+	 *     (arterisk='*' | (selections+=SelectionItem selections+=SelectionItem*))
 	 */
 	protected void sequence_SelectStatement(ISerializationContext context, SelectStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -265,20 +621,43 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Literal returns StringLiteral
-	 *     StringLiteral returns StringLiteral
+	 *     SelectionItem returns SelectionItem
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     ((expression=FQN | expression=FunctionCall) alias=Alias?)
 	 */
-	protected void sequence_StringLiteral(ISerializationContext context, StringLiteral semanticObject) {
+	protected void sequence_SelectionItem(ISerializationContext context, SelectionItem semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TemplatedValue returns TemplatedValue
+	 *
+	 * Constraint:
+	 *     value=ID
+	 */
+	protected void sequence_TemplatedValue(ISerializationContext context, TemplatedValue semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.STRING_LITERAL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.STRING_LITERAL__VALUE));
+			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.TEMPLATED_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.TEMPLATED_VALUE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTemplatedValueAccess().getValueIDTerminalRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     WhereStatement returns WhereStatement
+	 *
+	 * Constraint:
+	 *     expressions+=Expression
+	 */
+	protected void sequence_WhereStatement(ISerializationContext context, WhereStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

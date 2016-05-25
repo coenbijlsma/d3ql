@@ -7,22 +7,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Select Expression</b></em>'.
+ * A representation of the model object '<em><b>Selection Item</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getExpression <em>Expression</em>}</li>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getAlias <em>Alias</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem#getExpression <em>Expression</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem#getAlias <em>Alias</em>}</li>
  * </ul>
  *
- * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getSelectExpression()
+ * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getSelectionItem()
  * @model
  * @generated
  */
-public interface SelectExpression extends EObject
+public interface SelectionItem extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.
@@ -33,22 +33,22 @@ public interface SelectExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(EObject)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getSelectExpression_Expression()
+   * @see #setExpression(Expression)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getSelectionItem_Expression()
    * @model containment="true"
    * @generated
    */
-  EObject getExpression();
+  Expression getExpression();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem#getExpression <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Expression</em>' containment reference.
    * @see #getExpression()
    * @generated
    */
-  void setExpression(EObject value);
+  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Alias</b></em>' containment reference.
@@ -60,14 +60,14 @@ public interface SelectExpression extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Alias</em>' containment reference.
    * @see #setAlias(Alias)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getSelectExpression_Alias()
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getSelectionItem_Alias()
    * @model containment="true"
    * @generated
    */
   Alias getAlias();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectExpression#getAlias <em>Alias</em>}' containment reference.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.SelectionItem#getAlias <em>Alias</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Alias</em>' containment reference.
@@ -76,4 +76,4 @@ public interface SelectExpression extends EObject
    */
   void setAlias(Alias value);
 
-} // SelectExpression
+} // SelectionItem

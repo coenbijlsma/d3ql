@@ -14,8 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getFromStatement <em>From Statement</em>}</li>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getSelectStatement <em>Select Statement</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getFrom <em>From</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getSelect <em>Select</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getWhere <em>Where</em>}</li>
  * </ul>
  *
  * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getQuery()
@@ -25,55 +26,81 @@ import org.eclipse.emf.ecore.EObject;
 public interface Query extends EObject
 {
   /**
-   * Returns the value of the '<em><b>From Statement</b></em>' containment reference.
+   * Returns the value of the '<em><b>From</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>From Statement</em>' containment reference isn't clear,
+   * If the meaning of the '<em>From</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>From Statement</em>' containment reference.
-   * @see #setFromStatement(FromStatement)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getQuery_FromStatement()
+   * @return the value of the '<em>From</em>' containment reference.
+   * @see #setFrom(FromStatement)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getQuery_From()
    * @model containment="true"
    * @generated
    */
-  FromStatement getFromStatement();
+  FromStatement getFrom();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getFromStatement <em>From Statement</em>}' containment reference.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getFrom <em>From</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>From Statement</em>' containment reference.
-   * @see #getFromStatement()
+   * @param value the new value of the '<em>From</em>' containment reference.
+   * @see #getFrom()
    * @generated
    */
-  void setFromStatement(FromStatement value);
+  void setFrom(FromStatement value);
 
   /**
-   * Returns the value of the '<em><b>Select Statement</b></em>' containment reference.
+   * Returns the value of the '<em><b>Select</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Select Statement</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Select</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Select Statement</em>' containment reference.
-   * @see #setSelectStatement(SelectStatement)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getQuery_SelectStatement()
+   * @return the value of the '<em>Select</em>' containment reference.
+   * @see #setSelect(SelectStatement)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getQuery_Select()
    * @model containment="true"
    * @generated
    */
-  SelectStatement getSelectStatement();
+  SelectStatement getSelect();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getSelectStatement <em>Select Statement</em>}' containment reference.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getSelect <em>Select</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Select Statement</em>' containment reference.
-   * @see #getSelectStatement()
+   * @param value the new value of the '<em>Select</em>' containment reference.
+   * @see #getSelect()
    * @generated
    */
-  void setSelectStatement(SelectStatement value);
+  void setSelect(SelectStatement value);
+
+  /**
+   * Returns the value of the '<em><b>Where</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Where</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Where</em>' containment reference.
+   * @see #setWhere(WhereStatement)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getQuery_Where()
+   * @model containment="true"
+   * @generated
+   */
+  WhereStatement getWhere();
+
+  /**
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.Query#getWhere <em>Where</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Where</em>' containment reference.
+   * @see #getWhere()
+   * @generated
+   */
+  void setWhere(WhereStatement value);
 
 } // Query

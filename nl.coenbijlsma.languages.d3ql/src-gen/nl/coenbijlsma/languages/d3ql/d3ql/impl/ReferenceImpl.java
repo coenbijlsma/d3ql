@@ -4,56 +4,47 @@
 package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
-import nl.coenbijlsma.languages.d3ql.d3ql.PathElement;
+import nl.coenbijlsma.languages.d3ql.d3ql.Named;
+import nl.coenbijlsma.languages.d3ql.d3ql.Reference;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Path Element</b></em>'.
+ * An implementation of the model object '<em><b>Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.PathElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.ReferenceImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PathElementImpl extends MinimalEObjectImpl.Container implements PathElement
+public class ReferenceImpl extends ExpressionImpl implements Reference
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Named value;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PathElementImpl()
+  protected ReferenceImpl()
   {
     super();
   }
@@ -66,7 +57,7 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
   @Override
   protected EClass eStaticClass()
   {
-    return D3qlPackage.Literals.PATH_ELEMENT;
+    return D3qlPackage.Literals.REFERENCE;
   }
 
   /**
@@ -74,9 +65,19 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Named getValue()
   {
-    return name;
+    if (value != null && value.eIsProxy())
+    {
+      InternalEObject oldValue = (InternalEObject)value;
+      value = (Named)eResolveProxy(oldValue);
+      if (value != oldValue)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, D3qlPackage.REFERENCE__VALUE, oldValue, value));
+      }
+    }
+    return value;
   }
 
   /**
@@ -84,12 +85,22 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public Named basicGetValue()
   {
-    String oldName = name;
-    name = newName;
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(Named newValue)
+  {
+    Named oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.PATH_ELEMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.REFERENCE__VALUE, oldValue, value));
   }
 
   /**
@@ -102,8 +113,9 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
   {
     switch (featureID)
     {
-      case D3qlPackage.PATH_ELEMENT__NAME:
-        return getName();
+      case D3qlPackage.REFERENCE__VALUE:
+        if (resolve) return getValue();
+        return basicGetValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +130,8 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
   {
     switch (featureID)
     {
-      case D3qlPackage.PATH_ELEMENT__NAME:
-        setName((String)newValue);
+      case D3qlPackage.REFERENCE__VALUE:
+        setValue((Named)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +147,8 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
   {
     switch (featureID)
     {
-      case D3qlPackage.PATH_ELEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case D3qlPackage.REFERENCE__VALUE:
+        setValue((Named)null);
         return;
     }
     super.eUnset(featureID);
@@ -152,27 +164,10 @@ public class PathElementImpl extends MinimalEObjectImpl.Container implements Pat
   {
     switch (featureID)
     {
-      case D3qlPackage.PATH_ELEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case D3qlPackage.REFERENCE__VALUE:
+        return value != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //PathElementImpl
+} //ReferenceImpl

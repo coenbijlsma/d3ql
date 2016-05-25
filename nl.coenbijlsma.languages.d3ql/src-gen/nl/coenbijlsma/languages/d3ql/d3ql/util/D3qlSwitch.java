@@ -87,6 +87,27 @@ public class D3qlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case D3qlPackage.SELECT_STATEMENT:
+      {
+        SelectStatement selectStatement = (SelectStatement)theEObject;
+        T result = caseSelectStatement(selectStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.SELECTION_ITEM:
+      {
+        SelectionItem selectionItem = (SelectionItem)theEObject;
+        T result = caseSelectionItem(selectionItem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.WHERE_STATEMENT:
+      {
+        WhereStatement whereStatement = (WhereStatement)theEObject;
+        T result = caseWhereStatement(whereStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case D3qlPackage.NAMED:
       {
         Named named = (Named)theEObject;
@@ -110,38 +131,10 @@ public class D3qlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case D3qlPackage.SELECT_STATEMENT:
+      case D3qlPackage.EXPRESSION:
       {
-        SelectStatement selectStatement = (SelectStatement)theEObject;
-        T result = caseSelectStatement(selectStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case D3qlPackage.SELECT_EXPRESSION:
-      {
-        SelectExpression selectExpression = (SelectExpression)theEObject;
-        T result = caseSelectExpression(selectExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case D3qlPackage.PATH_EXPRESSION:
-      {
-        PathExpression pathExpression = (PathExpression)theEObject;
-        T result = casePathExpression(pathExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case D3qlPackage.PATH_ELEMENT:
-      {
-        PathElement pathElement = (PathElement)theEObject;
-        T result = casePathElement(pathElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case D3qlPackage.FUNCTION_CALL:
-      {
-        FunctionCall functionCall = (FunctionCall)theEObject;
-        T result = caseFunctionCall(functionCall);
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,34 +145,91 @@ public class D3qlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case D3qlPackage.LITERAL:
+      case D3qlPackage.OR:
       {
-        Literal literal = (Literal)theEObject;
-        T result = caseLiteral(literal);
+        Or or = (Or)theEObject;
+        T result = caseOr(or);
+        if (result == null) result = caseExpression(or);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case D3qlPackage.INTEGER_LITERAL:
+      case D3qlPackage.AND:
       {
-        IntegerLiteral integerLiteral = (IntegerLiteral)theEObject;
-        T result = caseIntegerLiteral(integerLiteral);
-        if (result == null) result = caseLiteral(integerLiteral);
+        And and = (And)theEObject;
+        T result = caseAnd(and);
+        if (result == null) result = caseExpression(and);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case D3qlPackage.STRING_LITERAL:
+      case D3qlPackage.EQUALITY:
       {
-        StringLiteral stringLiteral = (StringLiteral)theEObject;
-        T result = caseStringLiteral(stringLiteral);
-        if (result == null) result = caseLiteral(stringLiteral);
+        Equality equality = (Equality)theEObject;
+        T result = caseEquality(equality);
+        if (result == null) result = caseExpression(equality);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case D3qlPackage.BOOLEAN_LITERAL:
+      case D3qlPackage.COMPARISON:
       {
-        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
-        T result = caseBooleanLiteral(booleanLiteral);
-        if (result == null) result = caseLiteral(booleanLiteral);
+        Comparison comparison = (Comparison)theEObject;
+        T result = caseComparison(comparison);
+        if (result == null) result = caseExpression(comparison);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.NOT:
+      {
+        Not not = (Not)theEObject;
+        T result = caseNot(not);
+        if (result == null) result = caseExpression(not);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.TEMPLATED_VALUE:
+      {
+        TemplatedValue templatedValue = (TemplatedValue)theEObject;
+        T result = caseTemplatedValue(templatedValue);
+        if (result == null) result = caseExpression(templatedValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.INT_CONSTANT:
+      {
+        IntConstant intConstant = (IntConstant)theEObject;
+        T result = caseIntConstant(intConstant);
+        if (result == null) result = caseExpression(intConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.STRING_CONSTANT:
+      {
+        StringConstant stringConstant = (StringConstant)theEObject;
+        T result = caseStringConstant(stringConstant);
+        if (result == null) result = caseExpression(stringConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.BOOLEAN_CONSTANT:
+      {
+        BooleanConstant booleanConstant = (BooleanConstant)theEObject;
+        T result = caseBooleanConstant(booleanConstant);
+        if (result == null) result = caseExpression(booleanConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.NULL_CONSTANT:
+      {
+        NullConstant nullConstant = (NullConstant)theEObject;
+        T result = caseNullConstant(nullConstant);
+        if (result == null) result = caseExpression(nullConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.REFERENCE:
+      {
+        Reference reference = (Reference)theEObject;
+        T result = caseReference(reference);
+        if (result == null) result = caseExpression(reference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -215,6 +265,54 @@ public class D3qlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFromStatement(FromStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Select Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Select Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelectStatement(SelectStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Selection Item</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Selection Item</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelectionItem(SelectionItem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Where Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Where Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhereStatement(WhereStatement object)
   {
     return null;
   }
@@ -268,81 +366,17 @@ public class D3qlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Select Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Select Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSelectStatement(SelectStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Select Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Select Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSelectExpression(SelectExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Path Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Path Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePathExpression(PathExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Path Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Path Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePathElement(PathElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFunctionCall(FunctionCall object)
+  public T caseExpression(Expression object)
   {
     return null;
   }
@@ -364,65 +398,177 @@ public class D3qlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLiteral(Literal object)
+  public T caseOr(Or object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>And</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIntegerLiteral(IntegerLiteral object)
+  public T caseAnd(And object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStringLiteral(StringLiteral object)
+  public T caseEquality(Equality object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Comparison</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Comparison</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBooleanLiteral(BooleanLiteral object)
+  public T caseComparison(Comparison object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNot(Not object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Templated Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Templated Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTemplatedValue(TemplatedValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntConstant(IntConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringConstant(StringConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBooleanConstant(BooleanConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Null Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Null Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNullConstant(NullConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReference(Reference object)
   {
     return null;
   }

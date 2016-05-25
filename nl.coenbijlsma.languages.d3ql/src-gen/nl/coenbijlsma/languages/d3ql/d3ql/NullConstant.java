@@ -6,21 +6,21 @@ package nl.coenbijlsma.languages.d3ql.d3ql;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Integer Literal</b></em>'.
+ * A representation of the model object '<em><b>Null Constant</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.NullConstant#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getIntegerLiteral()
+ * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getNullConstant()
  * @model
  * @generated
  */
-public interface IntegerLiteral extends Literal
+public interface NullConstant extends Expression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -31,21 +31,21 @@ public interface IntegerLiteral extends Literal
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getIntegerLiteral_Value()
+   * @see #setValue(String)
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage#getNullConstant_Value()
    * @model
    * @generated
    */
-  int getValue();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.IntegerLiteral#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link nl.coenbijlsma.languages.d3ql.d3ql.NullConstant#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
    * @see #getValue()
    * @generated
    */
-  void setValue(int value);
+  void setValue(String value);
 
-} // IntegerLiteral
+} // NullConstant

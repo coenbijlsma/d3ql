@@ -3,8 +3,8 @@
  */
 package nl.coenbijlsma.languages.d3ql.d3ql.impl;
 
-import nl.coenbijlsma.languages.d3ql.d3ql.BooleanLiteral;
 import nl.coenbijlsma.languages.d3ql.d3ql.D3qlPackage;
+import nl.coenbijlsma.languages.d3ql.d3ql.IntConstant;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Boolean Literal</b></em>'.
+ * An implementation of the model object '<em><b>Int Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.BooleanLiteralImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.IntConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
+public class IntConstantImpl extends ExpressionImpl implements IntConstant
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -35,7 +35,7 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final int VALUE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -45,14 +45,14 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected int value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BooleanLiteralImpl()
+  protected IntConstantImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
   @Override
   protected EClass eStaticClass()
   {
-    return D3qlPackage.Literals.BOOLEAN_LITERAL;
+    return D3qlPackage.Literals.INT_CONSTANT;
   }
 
   /**
@@ -73,7 +73,7 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public int getValue()
   {
     return value;
   }
@@ -83,12 +83,12 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public void setValue(int newValue)
   {
-    String oldValue = value;
+    int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.BOOLEAN_LITERAL__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, D3qlPackage.INT_CONSTANT__VALUE, oldValue, value));
   }
 
   /**
@@ -101,7 +101,7 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.BOOLEAN_LITERAL__VALUE:
+      case D3qlPackage.INT_CONSTANT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,8 +117,8 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.BOOLEAN_LITERAL__VALUE:
-        setValue((String)newValue);
+      case D3qlPackage.INT_CONSTANT__VALUE:
+        setValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,7 +134,7 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.BOOLEAN_LITERAL__VALUE:
+      case D3qlPackage.INT_CONSTANT__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -151,8 +151,8 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
   {
     switch (featureID)
     {
-      case D3qlPackage.BOOLEAN_LITERAL__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case D3qlPackage.INT_CONSTANT__VALUE:
+        return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -174,4 +174,4 @@ public class BooleanLiteralImpl extends LiteralImpl implements BooleanLiteral
     return result.toString();
   }
 
-} //BooleanLiteralImpl
+} //IntConstantImpl
