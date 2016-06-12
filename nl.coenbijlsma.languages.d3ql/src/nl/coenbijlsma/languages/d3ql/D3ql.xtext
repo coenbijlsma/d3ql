@@ -65,10 +65,6 @@ Primary returns Expression:
 	Atomic
 ;
 
-TemplatedValue returns Expression:
-	{TemplatedValue} '{' value=ID '}'
-;
-
 FQN returns Expression:
 	head=[Named] '.' tail+=ID ('.' tail+=ID)*
 ;

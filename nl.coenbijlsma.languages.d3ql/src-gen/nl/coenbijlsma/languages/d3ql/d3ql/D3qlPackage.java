@@ -892,88 +892,6 @@ public interface D3qlPackage extends EPackage
   int NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl <em>Templated Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getTemplatedValue()
-   * @generated
-   */
-  int TEMPLATED_VALUE = 15;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__LEFT = EXPRESSION__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Alias</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__ALIAS = EXPRESSION__ALIAS;
-
-  /**
-   * The feature id for the '<em><b>Head</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__HEAD = EXPRESSION__HEAD;
-
-  /**
-   * The feature id for the '<em><b>Tail</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__TAIL = EXPRESSION__TAIL;
-
-  /**
-   * The feature id for the '<em><b>Function</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__FUNCTION = EXPRESSION__FUNCTION;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__ARGUMENTS = EXPRESSION__ARGUMENTS;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE__VALUE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Templated Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEMPLATED_VALUE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.IntConstantImpl <em>Int Constant</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -981,7 +899,7 @@ public interface D3qlPackage extends EPackage
    * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getIntConstant()
    * @generated
    */
-  int INT_CONSTANT = 16;
+  int INT_CONSTANT = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1063,7 +981,7 @@ public interface D3qlPackage extends EPackage
    * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 17;
+  int STRING_CONSTANT = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1145,7 +1063,7 @@ public interface D3qlPackage extends EPackage
    * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getBooleanConstant()
    * @generated
    */
-  int BOOLEAN_CONSTANT = 18;
+  int BOOLEAN_CONSTANT = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1227,7 +1145,7 @@ public interface D3qlPackage extends EPackage
    * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getNullConstant()
    * @generated
    */
-  int NULL_CONSTANT = 19;
+  int NULL_CONSTANT = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1300,6 +1218,88 @@ public interface D3qlPackage extends EPackage
    * @ordered
    */
   int NULL_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl <em>Templated Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getTemplatedValue()
+   * @generated
+   */
+  int TEMPLATED_VALUE = 19;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__LEFT = EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__ALIAS = EXPRESSION__ALIAS;
+
+  /**
+   * The feature id for the '<em><b>Head</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__HEAD = EXPRESSION__HEAD;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__TAIL = EXPRESSION__TAIL;
+
+  /**
+   * The feature id for the '<em><b>Function</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__FUNCTION = EXPRESSION__FUNCTION;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__ARGUMENTS = EXPRESSION__ARGUMENTS;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Templated Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEMPLATED_VALUE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -1854,27 +1854,6 @@ public interface D3qlPackage extends EPackage
   EReference getNot_Expression();
 
   /**
-   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue <em>Templated Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Templated Value</em>'.
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue
-   * @generated
-   */
-  EClass getTemplatedValue();
-
-  /**
-   * Returns the meta object for the attribute '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue#getValue()
-   * @see #getTemplatedValue()
-   * @generated
-   */
-  EAttribute getTemplatedValue_Value();
-
-  /**
    * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.IntConstant <em>Int Constant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1957,6 +1936,27 @@ public interface D3qlPackage extends EPackage
    * @generated
    */
   EAttribute getNullConstant_Value();
+
+  /**
+   * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue <em>Templated Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Templated Value</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue
+   * @generated
+   */
+  EClass getTemplatedValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue#getValue()
+   * @see #getTemplatedValue()
+   * @generated
+   */
+  EAttribute getTemplatedValue_Value();
 
   /**
    * Returns the meta object for class '{@link nl.coenbijlsma.languages.d3ql.d3ql.Reference <em>Reference</em>}'.
@@ -2385,24 +2385,6 @@ public interface D3qlPackage extends EPackage
     EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
 
     /**
-     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl <em>Templated Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl
-     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getTemplatedValue()
-     * @generated
-     */
-    EClass TEMPLATED_VALUE = eINSTANCE.getTemplatedValue();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TEMPLATED_VALUE__VALUE = eINSTANCE.getTemplatedValue_Value();
-
-    /**
      * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.IntConstantImpl <em>Int Constant</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2473,6 +2455,24 @@ public interface D3qlPackage extends EPackage
      * @generated
      */
     EAttribute NULL_CONSTANT__VALUE = eINSTANCE.getNullConstant_Value();
+
+    /**
+     * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl <em>Templated Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.TemplatedValueImpl
+     * @see nl.coenbijlsma.languages.d3ql.d3ql.impl.D3qlPackageImpl#getTemplatedValue()
+     * @generated
+     */
+    EClass TEMPLATED_VALUE = eINSTANCE.getTemplatedValue();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEMPLATED_VALUE__VALUE = eINSTANCE.getTemplatedValue_Value();
 
     /**
      * The meta object literal for the '{@link nl.coenbijlsma.languages.d3ql.d3ql.impl.ReferenceImpl <em>Reference</em>}' class.

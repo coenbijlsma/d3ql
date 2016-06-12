@@ -71,7 +71,6 @@ public class D3qlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComparisonAccess().getGroup_1_2_4(), "rule__Comparison__Group_1_2_4__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_0(), "rule__Primary__Group_0__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
-					put(grammarAccess.getTemplatedValueAccess().getGroup(), "rule__TemplatedValue__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_3(), "rule__FQN__Group_3__0");
 					put(grammarAccess.getFunctionCallAccess().getGroup(), "rule__FunctionCall__Group__0");
@@ -112,7 +111,6 @@ public class D3qlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComparisonAccess().getListAssignment_1_2_3(), "rule__Comparison__ListAssignment_1_2_3");
 					put(grammarAccess.getComparisonAccess().getListAssignment_1_2_4_1(), "rule__Comparison__ListAssignment_1_2_4_1");
 					put(grammarAccess.getPrimaryAccess().getExpressionAssignment_1_2(), "rule__Primary__ExpressionAssignment_1_2");
-					put(grammarAccess.getTemplatedValueAccess().getValueAssignment_2(), "rule__TemplatedValue__ValueAssignment_2");
 					put(grammarAccess.getFQNAccess().getHeadAssignment_0(), "rule__FQN__HeadAssignment_0");
 					put(grammarAccess.getFQNAccess().getTailAssignment_2(), "rule__FQN__TailAssignment_2");
 					put(grammarAccess.getFQNAccess().getTailAssignment_3_1(), "rule__FQN__TailAssignment_3_1");

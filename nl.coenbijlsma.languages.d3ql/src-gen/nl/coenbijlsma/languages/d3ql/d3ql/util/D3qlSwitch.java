@@ -185,14 +185,6 @@ public class D3qlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case D3qlPackage.TEMPLATED_VALUE:
-      {
-        TemplatedValue templatedValue = (TemplatedValue)theEObject;
-        T result = caseTemplatedValue(templatedValue);
-        if (result == null) result = caseExpression(templatedValue);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case D3qlPackage.INT_CONSTANT:
       {
         IntConstant intConstant = (IntConstant)theEObject;
@@ -222,6 +214,14 @@ public class D3qlSwitch<T> extends Switch<T>
         NullConstant nullConstant = (NullConstant)theEObject;
         T result = caseNullConstant(nullConstant);
         if (result == null) result = caseExpression(nullConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case D3qlPackage.TEMPLATED_VALUE:
+      {
+        TemplatedValue templatedValue = (TemplatedValue)theEObject;
+        T result = caseTemplatedValue(templatedValue);
+        if (result == null) result = caseExpression(templatedValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -478,22 +478,6 @@ public class D3qlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Templated Value</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Templated Value</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTemplatedValue(TemplatedValue object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Int Constant</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -553,6 +537,22 @@ public class D3qlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNullConstant(NullConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Templated Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Templated Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTemplatedValue(TemplatedValue object)
   {
     return null;
   }

@@ -129,28 +129,8 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Atomic(context, (StringConstant) semanticObject); 
 				return; 
 			case D3qlPackage.TEMPLATED_VALUE:
-				if (rule == grammarAccess.getExpressionRule()
-						|| action == grammarAccess.getExpressionAccess().getExpressionLeftAction_1_0()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0_0()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_1_0()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_2_0()
-						|| rule == grammarAccess.getPrimaryRule()
-						|| rule == grammarAccess.getAtomicRule()) {
-					sequence_Atomic(context, (TemplatedValue) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTemplatedValueRule()) {
-					sequence_TemplatedValue(context, (TemplatedValue) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Atomic(context, (TemplatedValue) semanticObject); 
+				return; 
 			case D3qlPackage.WHERE_STATEMENT:
 				sequence_WhereStatement(context, (WhereStatement) semanticObject); 
 				return; 
@@ -628,24 +608,6 @@ public class D3qlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SelectionItem(ISerializationContext context, SelectionItem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     TemplatedValue returns TemplatedValue
-	 *
-	 * Constraint:
-	 *     value=ID
-	 */
-	protected void sequence_TemplatedValue(ISerializationContext context, TemplatedValue semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, D3qlPackage.Literals.TEMPLATED_VALUE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, D3qlPackage.Literals.TEMPLATED_VALUE__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTemplatedValueAccess().getValueIDTerminalRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
 	}
 	
 	

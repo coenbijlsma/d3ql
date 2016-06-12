@@ -152,13 +152,6 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass templatedValueEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass intConstantEClass = null;
 
   /**
@@ -181,6 +174,13 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * @generated
    */
   private EClass nullConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass templatedValueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -697,26 +697,6 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTemplatedValue()
-  {
-    return templatedValueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTemplatedValue_Value()
-  {
-    return (EAttribute)templatedValueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getIntConstant()
   {
     return intConstantEClass;
@@ -790,6 +770,26 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
   public EAttribute getNullConstant_Value()
   {
     return (EAttribute)nullConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTemplatedValue()
+  {
+    return templatedValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTemplatedValue_Value()
+  {
+    return (EAttribute)templatedValueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -901,9 +901,6 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
 
-    templatedValueEClass = createEClass(TEMPLATED_VALUE);
-    createEAttribute(templatedValueEClass, TEMPLATED_VALUE__VALUE);
-
     intConstantEClass = createEClass(INT_CONSTANT);
     createEAttribute(intConstantEClass, INT_CONSTANT__VALUE);
 
@@ -915,6 +912,9 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
 
     nullConstantEClass = createEClass(NULL_CONSTANT);
     createEAttribute(nullConstantEClass, NULL_CONSTANT__VALUE);
+
+    templatedValueEClass = createEClass(TEMPLATED_VALUE);
+    createEAttribute(templatedValueEClass, TEMPLATED_VALUE__VALUE);
 
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__VALUE);
@@ -956,11 +956,11 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
     equalityEClass.getESuperTypes().add(this.getExpression());
     comparisonEClass.getESuperTypes().add(this.getExpression());
     notEClass.getESuperTypes().add(this.getExpression());
-    templatedValueEClass.getESuperTypes().add(this.getExpression());
     intConstantEClass.getESuperTypes().add(this.getExpression());
     stringConstantEClass.getESuperTypes().add(this.getExpression());
     booleanConstantEClass.getESuperTypes().add(this.getExpression());
     nullConstantEClass.getESuperTypes().add(this.getExpression());
+    templatedValueEClass.getESuperTypes().add(this.getExpression());
     referenceEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
@@ -1023,9 +1023,6 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(templatedValueEClass, TemplatedValue.class, "TemplatedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTemplatedValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, TemplatedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1037,6 +1034,9 @@ public class D3qlPackageImpl extends EPackageImpl implements D3qlPackage
 
     initEClass(nullConstantEClass, NullConstant.class, "NullConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNullConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, NullConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(templatedValueEClass, TemplatedValue.class, "TemplatedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTemplatedValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, TemplatedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Value(), this.getNamed(), null, "value", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -64,9 +64,6 @@
     <genClasses ecoreClass="D3ql.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference D3ql.ecore#//Not/expression"/>
     </genClasses>
-    <genClasses ecoreClass="D3ql.ecore#//TemplatedValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//TemplatedValue/value"/>
-    </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//IntConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//IntConstant/value"/>
     </genClasses>
@@ -78,6 +75,9 @@
     </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//NullConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//NullConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="D3ql.ecore#//TemplatedValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute D3ql.ecore#//TemplatedValue/value"/>
     </genClasses>
     <genClasses ecoreClass="D3ql.ecore#//Reference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference D3ql.ecore#//Reference/value"/>

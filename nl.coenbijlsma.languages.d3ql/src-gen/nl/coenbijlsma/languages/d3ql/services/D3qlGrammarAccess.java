@@ -649,37 +649,6 @@ public class D3qlGrammarAccess extends AbstractGrammarElementFinder {
 		//Atomic
 		public RuleCall getAtomicParserRuleCall_4() { return cAtomicParserRuleCall_4; }
 	}
-	public class TemplatedValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.coenbijlsma.languages.d3ql.D3ql.TemplatedValue");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTemplatedValueAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueIDTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//TemplatedValue Expression:
-		//	{TemplatedValue} '{' value=ID '}'
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{TemplatedValue} '{' value=ID '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{TemplatedValue}
-		public Action getTemplatedValueAction_0() { return cTemplatedValueAction_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//value=ID
-		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
-		
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_2_0() { return cValueIDTerminalRuleCall_2_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
-	}
 	public class FQNElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nl.coenbijlsma.languages.d3ql.D3ql.FQN");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -970,7 +939,6 @@ public class D3qlGrammarAccess extends AbstractGrammarElementFinder {
 	private final EqualityElements pEquality;
 	private final ComparisonElements pComparison;
 	private final PrimaryElements pPrimary;
-	private final TemplatedValueElements pTemplatedValue;
 	private final FQNElements pFQN;
 	private final FunctionCallElements pFunctionCall;
 	private final FunctionArgumentElements pFunctionArgument;
@@ -999,7 +967,6 @@ public class D3qlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEquality = new EqualityElements();
 		this.pComparison = new ComparisonElements();
 		this.pPrimary = new PrimaryElements();
-		this.pTemplatedValue = new TemplatedValueElements();
 		this.pFQN = new FQNElements();
 		this.pFunctionCall = new FunctionCallElements();
 		this.pFunctionArgument = new FunctionArgumentElements();
@@ -1172,16 +1139,6 @@ public class D3qlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPrimaryRule() {
 		return getPrimaryAccess().getRule();
-	}
-	
-	//TemplatedValue Expression:
-	//	{TemplatedValue} '{' value=ID '}'
-	public TemplatedValueElements getTemplatedValueAccess() {
-		return pTemplatedValue;
-	}
-	
-	public ParserRule getTemplatedValueRule() {
-		return getTemplatedValueAccess().getRule();
 	}
 	
 	//FQN Expression:

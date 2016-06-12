@@ -151,11 +151,6 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
         return createNotAdapter();
       }
       @Override
-      public Adapter caseTemplatedValue(TemplatedValue object)
-      {
-        return createTemplatedValueAdapter();
-      }
-      @Override
       public Adapter caseIntConstant(IntConstant object)
       {
         return createIntConstantAdapter();
@@ -174,6 +169,11 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNullConstant(NullConstant object)
       {
         return createNullConstantAdapter();
+      }
+      @Override
+      public Adapter caseTemplatedValue(TemplatedValue object)
+      {
+        return createTemplatedValueAdapter();
       }
       @Override
       public Adapter caseReference(Reference object)
@@ -428,21 +428,6 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue <em>Templated Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue
-   * @generated
-   */
-  public Adapter createTemplatedValueAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.IntConstant <em>Int Constant</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -498,6 +483,21 @@ public class D3qlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNullConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue <em>Templated Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see nl.coenbijlsma.languages.d3ql.d3ql.TemplatedValue
+   * @generated
+   */
+  public Adapter createTemplatedValueAdapter()
   {
     return null;
   }

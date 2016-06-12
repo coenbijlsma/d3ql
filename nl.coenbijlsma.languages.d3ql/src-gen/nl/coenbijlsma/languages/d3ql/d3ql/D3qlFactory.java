@@ -159,15 +159,6 @@ public interface D3qlFactory extends EFactory
   Not createNot();
 
   /**
-   * Returns a new object of class '<em>Templated Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Templated Value</em>'.
-   * @generated
-   */
-  TemplatedValue createTemplatedValue();
-
-  /**
    * Returns a new object of class '<em>Int Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,6 +193,15 @@ public interface D3qlFactory extends EFactory
    * @generated
    */
   NullConstant createNullConstant();
+
+  /**
+   * Returns a new object of class '<em>Templated Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Templated Value</em>'.
+   * @generated
+   */
+  TemplatedValue createTemplatedValue();
 
   /**
    * Returns a new object of class '<em>Reference</em>'.

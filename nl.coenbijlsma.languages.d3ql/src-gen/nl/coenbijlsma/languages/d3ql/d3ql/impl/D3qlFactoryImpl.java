@@ -80,11 +80,11 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
       case D3qlPackage.EQUALITY: return createEquality();
       case D3qlPackage.COMPARISON: return createComparison();
       case D3qlPackage.NOT: return createNot();
-      case D3qlPackage.TEMPLATED_VALUE: return createTemplatedValue();
       case D3qlPackage.INT_CONSTANT: return createIntConstant();
       case D3qlPackage.STRING_CONSTANT: return createStringConstant();
       case D3qlPackage.BOOLEAN_CONSTANT: return createBooleanConstant();
       case D3qlPackage.NULL_CONSTANT: return createNullConstant();
+      case D3qlPackage.TEMPLATED_VALUE: return createTemplatedValue();
       case D3qlPackage.REFERENCE: return createReference();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -261,17 +261,6 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TemplatedValue createTemplatedValue()
-  {
-    TemplatedValueImpl templatedValue = new TemplatedValueImpl();
-    return templatedValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public IntConstant createIntConstant()
   {
     IntConstantImpl intConstant = new IntConstantImpl();
@@ -309,6 +298,17 @@ public class D3qlFactoryImpl extends EFactoryImpl implements D3qlFactory
   {
     NullConstantImpl nullConstant = new NullConstantImpl();
     return nullConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TemplatedValue createTemplatedValue()
+  {
+    TemplatedValueImpl templatedValue = new TemplatedValueImpl();
+    return templatedValue;
   }
 
   /**
